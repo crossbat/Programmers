@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = 'utf-8' lang = 'ko'>
+    <title>일본 여행 랜딩페이지</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href='./static/css/index.css' rel = 'stylesheet'>
+  </head>
+  <body class = 'position-relative overflow-hidden' style='height:100vh;width:100vw;scroll-behavior:smooth;'>
+    <nav class = 'navbar fixed-top justify-content-end pe-5' style = 'height:70px;'>
+      <ul class = 'nav'>
+        <li class = 'nav-item align-middle'>
+          <a href = 'https://www.google.com/search?q=%EC%9D%BC%EB%B3%B8+%ED%99%98%EC%9C%A8' target = '_black'>
+            <span>지금의 환율은?</span>
+          </a>
+        </li>
+        <li class = 'nav-item align-middle'>
+          <a id = 'sc2' href = '#section2'>
+            <span>어디로 가볼까요?</span>
+          </a>
+        </li>
+        <li class = 'nav-item align-middle'>
+          <a id = 'sc3' href = '#section3'>
+            <span>뭘 해볼까요?</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div id="sections-container w-100 h-100">
+      <section id="section1" class="">
+        <div class = 'd-flex w-100 h-75'>
+          <div id = 'main_text_box' class = 'position-relative w-75 h-75'>
+            <div>
+              <div class = 'pb-2'>
+                <p class = 'logo_text'>떠나고 싶은 마음이 든다면,</p>
+                <p class = 'logo_text'>그게 바로 떠날 타이밍이에요.</p>
+              </div>
+              <div>
+                <p class = 'description'>언제 갈지 고민하고 있다면, 이미 마음은 일본에 가 있지 않나요?</p>
+                <p class = 'description'>이곳은 당신의 그 마음을 현실로 만들기 위한 페이지입니다.</p>
+                <p class = 'description'>더 이상 망설이지 말고, 지금 가장 설레이는 여행을 시작해보세요.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = 'd-flex w-100 h-25'>
+          <div id = 'gradient1' class = 'w-100 h-100'>
+          </div>
+        </div>
+      </section>
+      <section id="section2" class="">
+        <div class = 'd-flex w-100' style = 'height:30%'>
+          <div class = 'position-relative w-100 h-100'>
+            <p id = 'sc2_text_box' class = 'logo_text position-absolute'>이번 여행은 여기 어때요?</p>
+            <p class = 'description2'>어디로 떠날지 고민되나요?</p>
+            <p class = 'description2' style = "top:86%">당신의 여행지가 지금 정해질지도 몰라요</p>
+          </div>
+        </div>
+        <div class = 'd-flex w-100' style = 'height:70%'>
+          <div class = 'd-flex flex-row justify-content-center w-100' style = 'flex-wrap:wrap;'>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class = 'd-flex flex-row'>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.gotokyo.org/kr/see-and-do/attractions/index.html' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/tokyo.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>도 쿄</p>
+
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://kyoto.travel/ko/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/kyoto.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>교 토</p>
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.crossroadfukuoka.jp/kr' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/fukuoka.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>후쿠오카</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class = 'd-flex flex-row'>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.nagoya-info.jp/ko/spot/standard/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/nagoya.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>나고야</p>
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://narashikanko.or.jp/ko/modelcourse/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/fukuoka.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>나 라</p>
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.okinawaobaksa.com/schedule/index.php' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/okinawa.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>오키나와</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class = 'd-flex flex-row'>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://ko.osaka-info.jp/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/osaka.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>오사카</p>
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.city.sapporo.jp.k.ain.hp.transer.com/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/satporo.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>삿포로</p>
+                      </a>
+                    </div>
+                    <div class = 'c-card p-4'>
+                      <a href = 'https://www.yokohamajapan.com/kr/article/what-to-do/' target = '_blank' class = 'position-relative'>
+                        <img src="./static/img/webp/yokohama.webp" class="c-img d-block w-100" loading='lazy' decoding='async'>
+                        <p class = 'position-absolute top-50 start-50 translate-middle c-text'>요코하마</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section3" class="">
+        <div class = 'w-100 h-100'>
+          <div class = 'd-flex align-items-start w-100 h-25 mb-3'>
+            <div id = 'gradient3' class = 'd-flex w-100 h-100'></div>
+          </div>
+          <div class = 'd-flex w-100 h-75'>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src = './static/js/index.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
