@@ -1,0 +1,260 @@
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NoonnuBasicGothicRegular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+  height:100vh;
+  width:100vw;
+  scroll-behavior:smooth;
+}
+
+nav{
+  height:70%;
+}
+
+section{
+  height:100vh;
+}
+
+a{
+  text-decoration : none;
+  color : black;
+  font-family: 'SUIT-Regular';
+}
+
+#section1{
+  background-image: url('../img/section1.jpg');
+  background-size:cover;
+}
+
+#gradient1{
+  background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+  bottom:0;
+}
+
+#main_text_box{
+  top:37%;
+  left:12%;
+}
+
+.description{
+  font-family: 'SUIT-Regular';
+  font-size:20px;
+  margin-bottom:1px;
+  color: #323232;
+}
+
+#section2{
+  background-color:rgba(255,255,255, 1);
+}
+
+#sc2_text_box{
+  top:45%;
+  left:9%;
+}
+
+.description2{
+  font-family: 'SUIT-Regular';
+  font-size:16px;
+  margin-bottom:1px;
+  color: #323232;
+  position:absolute;
+  left:9.3%;
+  top:75%;
+}
+
+.logo_text{
+  font-family: 'JalnanGothic';
+  font-size: 42px;
+  margin-bottom:2px;
+  font-weight: bolder;
+}
+
+.flag{
+  width: 30px;
+  margin-right : 5px;
+}
+
+.nav-item{
+  padding-right:20px;
+}
+
+.carousel{
+  width: 90%;
+  height:90%;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.carousel-inner{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.carousel-item{
+  height:110%;
+}
+
+.carousel div{
+  height:100%;
+}
+
+.c-card{
+  width:33%;
+  height:100%;
+  overflow:hidden;
+}
+
+.c-card a{
+  display:flex;
+  width:100%;
+  height:100%;
+}
+
+.c-img{
+  border-radius:16px;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(1);
+  transition: .3s ease-in-out;
+}
+
+.c-card a:hover .c-img{
+  filter:brightness(0.4);
+}
+
+.c-text{
+  font-family: 'JalnanGothic';
+  font-size: 40px;
+  color:white;
+  opacity : 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.c-card a:hover .c-text{
+  opacity: 1;
+}
+
+.row{
+  height:40%;
+}
+
+.col{
+  margin : 20px;
+  border-radius:16px;
+  background-color : white;
+}
+
+.col > img{
+  object-fit:cover;
+}
+
+#left{
+  width:60%;
+  height:100%;
+}
+
+#right{
+  width:40%;
+  height:100%;
+}
+
+#sc3-logo{
+  width:100%;
+  height:30%;
+}
+
+.sc3_text_box{
+  font-family: 'JalnanGothic';
+  position : absolute;
+  top:45%;
+  left:9%;
+}
+
+.description3{
+  font-family: 'SUIT-Regular';
+  font-size : 16px;
+  top:75%;
+  left: 9.2%;
+}
+
+#map-box{
+  width:100%;
+  height:70%;
+}
+
+#map{
+  height:90%;
+}
+
+.marking{
+  position:absolute;
+  width: 3vw;
+  height:auto;
+  opacity: 0.6;
+  cursor: zoom-in;
+  transition:opacity 0.1s ease-in-out;
+}
+
+.marking:hover{
+  opacity: 1;
+}
+
+#cardImage{
+  cursor: pointer;
+}
+
+/* location */
+#train{
+  top:69%;
+  left:36%;
+}
+
+#past{
+  top:54%;
+  left:43%;
+}
+
+#eat{
+  top:17%;
+  left:73%;
+}
+
+#festival{
+  top:34%;
+  left:62%;
+}
+
+#sake{
+  top:59%;
+  left:28%;
+}
+
+#onsen{
+  top:48%;
+  left:57%;
+}
+
+#cat{
+  top:67%;
+  left:44%;
+
+}
