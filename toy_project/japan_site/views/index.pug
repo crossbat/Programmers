@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  body.position-relative.overflow-hidden
+    nav.navbar.fixed-top.justify-content-end.pe-5
+      ul.nav
+        li.nav-irem.align-middle
+          a(href = '#' target='_blank')
+            span 지금의 환율은?
+        li.nav-irem.align-middle
+          a#sc2(href = '#')
+            span 어디로 가볼까요?
+        li.nav-irem.align-middle
+          a#sc3(href = '#')
+            span 뭘 해볼까요?
+    div#sections-container
+      section#section1
+        div.d-flex.w-100.h-75
+          div#main_text_box.position-relative.w-75.h-75
+            div
+              div.pb-2
+                p.logo_text 떠나고 싶은 마음이 든다면
+                p.logo_text 그게 바로 떠날 타이밍이에요.
+              div
+                p.description 언제 갈지 고민하고 있다면, 이미 마음은 일본에 가있지 않나요?
+                p.description 이곳은 당신의 그 마음을 현실로 만들기 위한 페이지 입니다.
+                p.description 더 이상은 망설이지 말고, 지금 가장 설레이는 여행을 시작해보세요.
+        div.d-flex.w-100.h-25
+          div#gradient1.w-100.h-100
+      section#section2
+        div.d-flex.w-100(style='height:30%')
+          div.position-relative.w-100.h-100
+            p#sc2_text_box.logo_text.position-absolute 이번 여행은 여기 어때요?
+
+
