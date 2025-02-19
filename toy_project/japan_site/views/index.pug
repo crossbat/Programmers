@@ -1,35 +1,114 @@
-extends layout
-
-block content
-  body.position-relative.overflow-hidden
-    nav.navbar.fixed-top.justify-content-end.pe-5
+doctype html
+head
+  meta(charset="utf-8" lang="ko")
+  title #{title}
+  link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous")
+  link(href="stylesheets/style.css" rel="stylesheet")
+body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-behavior:smooth;")
+  nav.navbar.fixed-top(style="height:70px;")
+    div.container-fluid
+      div.position-relative.w-50
+        div.nav-brand.d-flex.align-items-center.justify-content-center
+          img.japan-flag(src = '/images/nav/japan-flag.png')
+          span.text-center #{exc}
       ul.nav
-        li.nav-irem.align-middle
-          a(href = '#' target='_blank')
-            span 지금의 환율은?
-        li.nav-irem.align-middle
-          a#sc2(href = '#')
+        li.nav-item.align-middle
+          a#sc2(href="#section2")
             span 어디로 가볼까요?
-        li.nav-irem.align-middle
-          a#sc3(href = '#')
+        li.nav-item.align-middle
+          a#sc3(href="#section3")
             span 뭘 해볼까요?
-    div#sections-container
-      section#section1
-        div.d-flex.w-100.h-75
-          div#main_text_box.position-relative.w-75.h-75
+  #sections-container
+    section#section1
+      .d-flex.w-100.h-75.flex-row
+        div.w-50.d-flex.justify-content-end.align-items-end
+          div.mb-5
+            .pb-2
+              p(class="logo_text") 떠나고 싶은 마음이 든다면,
+              p(class="logo_text") 그게 바로 떠날 타이밍이에요.
             div
-              div.pb-2
-                p.logo_text 떠나고 싶은 마음이 든다면
-                p.logo_text 그게 바로 떠날 타이밍이에요.
-              div
-                p.description 언제 갈지 고민하고 있다면, 이미 마음은 일본에 가있지 않나요?
-                p.description 이곳은 당신의 그 마음을 현실로 만들기 위한 페이지 입니다.
-                p.description 더 이상은 망설이지 말고, 지금 가장 설레이는 여행을 시작해보세요.
-        div.d-flex.w-100.h-25
-          div#gradient1.w-100.h-100
-      section#section2
-        div.d-flex.w-100(style='height:30%')
-          div.position-relative.w-100.h-100
-            p#sc2_text_box.logo_text.position-absolute 이번 여행은 여기 어때요?
-
+              p.description 언제 갈지 고민하고 있다면, 이미 마음은 일본에 가 있지 않나요?
+              p.description 이곳은 당신의 그 마음을 현실로 만들기 위한 페이지입니다.
+              p.description 더 이상 망설이지 말고, 지금 가장 설레이는 여행을 시작해보세요.
+        div.w-50
+      .d-flex.w-100.h-25
+        #gradient1.w-100.h-100
+    section#section2(class=)
+      .d-flex.w-100(style="height:30%")
+        .position-relative.w-100.h-100
+          p#sc2_text_box.logo_text.position-absolute 이번 여행은 여기 어때요?
+          p.description2 어디로 떠날지 고민되나요?
+          p.description2(style="top:86%") 당신의 여행지가 지금 정해질지도 몰라요
+      .d-flex.w-100(style="height:70%")
+        .d-flex.flex-row.justify-content-center.w-100(style="flex-wrap:wrap;")
+          #carouselExampleSlidesOnly.carousel.slide(data-bs-ride="carousel")
+            .carousel-inner
+              .carousel-item.active
+                .d-flex.flex-row
+                  .c-card.p-4
+                    a.position-relative(href="https://www.gotokyo.org/kr/see-and-do/attractions/index.html" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/tokyo.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 도 쿄
+                  .c-card.p-4
+                    a.position-relative(href="https://kyoto.travel/ko/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/kyoto.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 교 토
+                  .c-card.p-4
+                    a.position-relative(href="https://www.crossroadfukuoka.jp/kr" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/fukuoka.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 후쿠오카
+              .carousel-item
+                .d-flex.flex-row
+                  .c-card.p-4
+                    a.position-relative(href="https://www.nagoya-info.jp/ko/spot/standard/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/nagoya.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 나고야
+                  .c-card.p-4
+                    a.position-relative(href="https://narashikanko.or.jp/ko/modelcourse/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/nara.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 나 라
+                  .c-card.p-4
+                    a.position-relative(href="https://www.okinawaobaksa.com/schedule/index.php" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/okinawa.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 오키나와
+              .carousel-item
+                .d-flex.flex-row
+                  .c-card.p-4
+                    a.position-relative(href="https://ko.osaka-info.jp/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/osaka.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 오사카
+                  .c-card.p-4
+                    a.position-relative(href="https://www.city.sapporo.jp.k.ain.hp.transer.com/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/satporo.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 삿포로
+                  .c-card.p-4
+                    a.position-relative(href="https://www.yokohamajapan.com/kr/article/what-to-do/" target="_blank")
+                      img.c-img.d-block.w-100(src="/images/section2/webp/yokohama.webp" loading="lazy" decoding="async")
+                      p.position-absolute.top-50.start-50.translate-middle.c-text 요코하마
+    section#section3
+      .w-100.h-100
+        .d-flex.flex-row.w-100.h-100
+          #left.d-flex.flex-column
+            #sc3-logo.position-relative.d-flex
+              p(class="sc3_text_box logo_text") 이번 여행은 어떤 여행이 될까요?
+              p.description3.position-absolute 이번 여행을 어떤 여행으로 만들어보고 싶으신가요?
+              p.description3.position-absolute(style="top:85%") 당신의 일본 여행을 위한 다양한 주제들을 살펴보세요
+            #map-box.position-relative.d-flex.justify-content-center
+              img#map(src="./images/section3/map.png")
+              img#train.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#past.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#eat.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#festival.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#sake.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#onsen.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+              img#cat.marking(src="./images/section3/mark.png"  onclick="chosenImage(this.id)")
+          #right.d-flex.justify-content-center.align-items-end.pb-5.pe-5
+            .card.mb-3.border.border-0.shadow-lg.p-3(style="height:80%; width:80%;")
+              a.cardUrl.overflow-hidden(href="#" target="_blank" style="height:60%;width:100%;")
+                img#cardImage.card-img-top.object-fit-cover.w-100.h-100(src="./images/section3/card_img/init.jpg" style="border-radius:0.375rem;")
+              .card-body
+                h5.card-title 어디로 가볼까요?
+                p.card-text 왼쪽의 지도의 핀을 클릭해보세요!
+  script(src="/javascripts/script.js")
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
 
