@@ -42,6 +42,27 @@ a{
 
 .container-fluid{
   width:88%;
+  height:100%;
+}
+
+#offcanvas_button{
+  background-color:rgba(225,225,225,0.6);
+  border-radius : 0 0 10px 10px;
+}
+
+.offcanvas-top{
+  background-color: rgba(225, 225, 225, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.widget-card{
+  width:15%;
+  background-color:rgba(225,225,225,0.8);
+  border-radius:10px;
+}
+
+.col{
+  background-color : transparent;
 }
 
 .nav-brand{
@@ -52,8 +73,18 @@ a{
 }
 
 .japan-flag{
-  width:30px;
-  height:30px;
+  width : 35%;
+}
+
+#exchangeMoney{
+  font-family : 'JalnanGothic';
+  font-size : 1.8rem;
+}
+
+#oneyen{
+  font-family : 'SUIT-Regular';
+  font-size:1.3rem;
+  color : gray;
 }
 
 #gradient1{
@@ -153,20 +184,6 @@ a{
 
 .c-card a:hover .c-text{
   opacity: 1;
-}
-
-.row{
-  height:40%;
-}
-
-.col{
-  margin : 20px;
-  border-radius:16px;
-  background-color : white;
-}
-
-.col > img{
-  object-fit:cover;
 }
 
 #left{

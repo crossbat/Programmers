@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   //환율 api 연결
   axios.get(url).then(response => {
     const exchangeRate = response.data
-    const data = parseFloat(exchangeRate.country[1].value) * 100
+    const data = exchangeRate.country[1].value
     res.render('index', { title: 'Welcome Japan', exc: data });
   }).catch(error => {
     console.error(error)
