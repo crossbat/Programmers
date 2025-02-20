@@ -5,25 +5,35 @@ app.listen(3000)
 let users = new Map
 var userCount = 1
 
+app.use(express.json())
 app.post('/login', (req, res) => {
-  let userId = req.body.id
-  let userPassword = req.body.password
-  if (userId) {
-    if (userPassword) {
-      res.status(200).json({
-        message: `${req.body.id}님 환영합니다.`
-      })
+  const { id, password } = req.body
+  var loginUser = {}
+
+  users.forEach(function (user, index) {
+    if (user.id === id) {
+      loginUser = user
+    }
+  })
+  if (isExist(loginUser)) {
+    console.log('아이디가 같습니다.')
+    if (loginUser.password === password) {
+      console.log('비밀번호도 같습니다.')
     } else {
-      res.status(400).json({
-        message: '비밀번호를 입력해주세요'
-      })
+      console.log('비밀번호가 틀립니다.')
     }
   } else {
-    res.status(400).json({
-      message: '아이디를 입력해주세요'
-    })
+    console.log('아이디가 없습니다.')
   }
 })
+
+function isExist(obj) {
+  if (Object.keys(obj).length) {
+    return true
+  } else {
+    return false
+  }
+}
 
 app.use(express.json())
 app.post('/join', (req, res) => {
