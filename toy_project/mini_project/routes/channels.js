@@ -1,8 +1,8 @@
 const express = require('express')
-const app = express()
-app.listen(3000)
+const router = express.Router()
+const conn = require('../db-demo')
 
-app.use(express.json())
+router.use(express.json())
 
 let db = new Map
 var channelCnt = 1
@@ -15,46 +15,51 @@ function isFilled(a) {
   }
 }
 
-app.route('/channels')
+router.route('/')
   .get((req, res) => {
-    if (isFilled(db)) {
-      let dbJson = {}
-      db.forEach((value, key) => {
-        dbJson[key] = value
+    var { user_id } = req.body
+
+
+    let sql = `SELECT * FROM channels WHERE user_id = ?`
+    if (user_id) {
+      conn.query(sql, user_id, function (err, results) {
+        if (results.length) {
+          res.status(200).json(results)
+        } else {
+          notFoundChannel(res)
+        }
       })
-      res.status(200).json(dbJson)
     } else {
-      res.status(404).json({
-        message: '채널이 없습니다.'
-      })
+      res.status(400).end()
     }
   })
   .post((req, res) => {
-    let { channelName } = req.body
-    if (channelName) {
-      db.set(channelCnt++, { channelName: channelName })
-      res.status(201).json({
-        message: `${channelName}님, 만나서 반갑습니다.`
+    let { name, user_id } = req.body
+    if (name && user_id) {
+      let sql = `INSERT INTO channels (name, user_id) VALUES (?, ?)`
+      let values = [name, user_id]
+      conn.query(sql, values, function (err, results) {
+        res.status(201).json(results)
       })
     } else {
       res.status(400).json({
-        message: "채널명을 작성해주세요"
+        message: "요청값을 제대로 보내주세요"
       })
     }
   })
 
-app.route('/channels/:id')
+router.route('/:id')
   .get((req, res) => {
     let { id } = req.params
     id = parseInt(id)
-    const channel = db.get(id)
-    if (channel) {
-      res.status(200).json(channel)
-    } else {
-      res.status(404).json({
-        message: '등록되어있지 않은 채널입니다.'
-      })
-    }
+    let sql = `SELECT * FROM channels WHERE id = ?`
+    conn.query(sql, id, function (err, results) {
+      if (results.length) {
+        res.status(200).json(results)
+      } else {
+        notFoundChannel(res)
+      }
+    })
   })
   .delete((req, res) => {
     let { id } = req.params
@@ -66,9 +71,7 @@ app.route('/channels/:id')
       })
       db.delete(id)
     } else {
-      res.status(404).json({
-        message: "등록되어있지 않은 계정입니다."
-      })
+      notFoundChannel()
     }
   })
   .put((req, res) => {
@@ -89,8 +92,14 @@ app.route('/channels/:id')
         })
       }
     } else {
-      res.status(404).json({
-        message: '등록되어있지 않은 채널입니다.'
-      })
+      notFoundChannel()
     }
   })
+
+function notFoundChannel(res) {
+  res.status(404).json({
+    message: '등록되어있지 않은 채널입니다.'
+  })
+}
+
+module.exports = router
