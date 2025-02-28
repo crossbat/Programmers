@@ -5,12 +5,34 @@ const conn = require('../db-demo')
 
 router.use(express.json())
 
+const validate = (req, res, next) => {
+  const err = validationResult(req)
+
+  if (err.isEmpty()) {
+    return next()
+  } else {
+    return res.status(400).json(err.array())
+  }
+}
+
+function notFoundChannel(res) {
+  res.status(404).json({
+    message: '등록되어있지 않은 채널입니다.'
+  })
+}
+
+function isError(res, err, err_code) {
+  if (err) {
+    console.log(err)
+    return res.status(err_code).json(err)
+  }
+}
+
 router.route('/')
-  .get(body('user_id').notEmpty().isInt().withMessage("숫자로 입력해주세요"), (req, res) => {
-    const err = validationResult(req)
-    if (!err.isEmpty()) {
-      return res.status(400).json(err.array())
-    }
+  .get([
+    body('user_id').notEmpty().isInt().withMessage("숫자로 입력해주세요"),
+    validate
+  ], (req, res) => {
 
     var { user_id } = req.body
     let sql = `SELECT * FROM channels WHERE user_id = ?`
@@ -26,27 +48,24 @@ router.route('/')
   })
   .post([
     body('user_id').notEmpty().isInt().withMessage('숫자를 입력해주세요.'),
-    body('name').notEmpty().isString().withMessage('문자로 입력해주세요.')
+    body('name').notEmpty().isString().withMessage('문자로 입력해주세요.'),
+    validate
   ], (req, res) => {
-    const err = validationResult(req)
-    if (!err.isEmpty()) {
-      return res.status(400).json(err.array())
-    }
     let { name, user_id } = req.body
     let sql = `INSERT INTO channels (name, user_id) VALUES (?, ?)`
     let values = [name, user_id]
     conn.query(sql, values, function (err, results) {
       isError(res, err, 500)
+
+      res.status(200).json(results)
     })
   })
 
 router.route('/:id')
-  .get(param('id').notEmpty().withMessage('채널 아이디가 필요합니다.'), (req, res) => {
-    const err = validationResult(req)
-    if (err.notEmpty()) {
-      return res.status(400).json(err.array())
-    }
-
+  .get([
+    param('id').notEmpty().withMessage('채널 아이디가 필요합니다.'),
+    validate
+  ], (req, res) => {
     let { id } = req.params
     id = parseInt(id)
 
@@ -61,13 +80,10 @@ router.route('/:id')
       }
     })
   })
-  .delete(param('id').notEmpty().withMessage('존재하지 않는 채널입니다.'), (req, res) => {
-    let err = validationResult(req)
-
-    if (!err.isEmpty()) {
-      return res.status(400).json(err.array())
-    }
-
+  .delete([
+    param('id').notEmpty().withMessage('존재하지 않는 채널입니다.'),
+    validate
+  ], (req, res) => {
     let { id } = req.params
     id = parseInt(id)
 
@@ -81,14 +97,11 @@ router.route('/:id')
       }
     })
   })
-  .put([param('id').notEmpty().withMessage('채널이 존재하지 않습니다.'),
-  body('name').notEmpty().isString().withMessage('채널명이 유효하지 않습니다.')
+  .put([
+    param('id').notEmpty().withMessage('채널이 존재하지 않습니다.'),
+    body('name').notEmpty().isString().withMessage('채널명이 유효하지 않습니다.'),
+    validate
   ], (req, res) => {
-    let err = validationResult(req)
-    if (!err.isEmpty()) {
-      return res.status(400).json(err.array())
-    }
-
     let { id } = req.params
     let { name } = req.body
     id = parseInt(id)
@@ -105,17 +118,5 @@ router.route('/:id')
     })
   })
 
-function notFoundChannel(res) {
-  res.status(404).json({
-    message: '등록되어있지 않은 채널입니다.'
-  })
-}
-
-function isError(res, err, err_code) {
-  if (err) {
-    console.log(err)
-    return res.status(err_code).json(err)
-  }
-}
 
 module.exports = router
