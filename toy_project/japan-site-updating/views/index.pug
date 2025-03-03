@@ -1,0 +1,107 @@
+doctype html
+head
+  meta(charset="utf-8" lang="ko")
+  title #{title}
+  link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous")
+  link(href="stylesheets/style.css" rel="stylesheet")
+body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-behavior:smooth;")
+  nav.navbar.fixed-top.p-0(style="height:70px;")
+    div.container-fluid.w-75.h-100
+      div.position-relative.w-50.h-100.d-flex.justify-content-top
+        button.btn.border.border-0.h-75.shadow.px-3(id = 'offcanvas_button' type='button' data-bs-toggle='offcanvas' data-bs-target='#widget' aria-controls='offcanvasTop') 환율 & 날씨
+        .offcanvas.offcanvas-top.shadow-lg(tabindex='-1' id = "widget" aria-labelledby="offcanvasTopLabel")
+          .offcanvas-body
+            .d-flex.flex-row.justify-content-center.align-items-center.w-100.h-100
+              .widget-card.shadow.mx-3.p-3
+                .w-100.d-flex.flex-column.justify-content-center.align-items-start(style = "height:50%;")
+                  img.japan-flag.pb-2(src='/images/nav/torii.png')
+                .w-100.d-flex.flex-column.justify-content-center(style = 'height:30%;')
+                  .w-100.text-bottom(id= 'exchangeMoney') #{exc}원
+                .d-flex.flex-column.w-100.justify-content-center(style = 'height:20%;')
+                  .w-100(id = 'oneyen')  ￥1 기준
+              .vr.mx-4
+              .widget-card.shadow.mx-3
+                p #{region_response[0].weather_code}
+              .widget-card.shadow.mx-3
+              .widget-card.shadow.mx-3
+      ul.nav
+        li.nav-item.align-middle
+          a#sc2(href="#section2")
+            span 어디로 가볼까요?
+        li.nav-item.align-middle
+          a#sc3(href="#section3")
+            span 뭘 해볼까요?
+  section#section1.d-flex.flex-column
+    div#section1Main.w-100.h-75.d-flex.justify-content-center
+      div.container-fluid.d-flex.align-items-center.w-75.h-100
+        div.w-100.h-50.d-flex.align-items-center
+          div.w-100
+            div.mainText.pb-2
+              p 떠나고 싶은 마음이 든다면,
+              p 그게 바로 떠날 타이밍이에요.
+            div.description
+              p 언제 갈지 고민하고 있다면 이미 마음은 일본에 가 있지 않나요?
+              p 이곳은 당신의 마음을 현실로 만들기 위한 곳이에요.
+              p 더 이상 망설이지 말고, 지금 가장 설레이는 여행을 떠나보세요!
+    div#section1Gradient.w-100.h-25
+  section#section2.d-flex.flex-column.align-items-center
+    div#section2Header.w-75.h-25.d-flex.align-items-end
+      div.w-100
+        div.mainText.pb-2
+          p 이번 여행은 여기 어때요?
+        div.description
+          p 어디로 떠날지 고민되나요?
+          p 당신의 여행지가 지금 정해질지 몰라요!
+    div#section2Main.w-100.h-75
+      .d-flex.flex-row.justify-content-center.align-items-center.w-100(style="flex-wrap:wrap;")
+        #carouselExampleSlidesOnly.carousel.slide(data-bs-ride="carousel")
+          .carousel-inner
+            .carousel-item.active
+              .d-flex.flex-row
+                .c-card.p-4
+                  a.position-relative(href="https://www.gotokyo.org/kr/see-and-do/attractions/index.html" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/tokyo.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 도 쿄
+                .c-card.p-4
+                  a.position-relative(href="https://kyoto.travel/ko/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/kyoto.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 교 토
+                .c-card.p-4
+                  a.position-relative(href="https://www.crossroadfukuoka.jp/kr" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/fukuoka.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 후쿠오카
+            .carousel-item
+              .d-flex.flex-row
+                .c-card.p-4
+                  a.position-relative(href="https://www.nagoya-info.jp/ko/spot/standard/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/nagoya.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 나고야
+                .c-card.p-4
+                  a.position-relative(href="https://narashikanko.or.jp/ko/modelcourse/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/nara.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 나 라
+                .c-card.p-4
+                  a.position-relative(href="https://www.okinawaobaksa.com/schedule/index.php" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/okinawa.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 오키나와
+            .carousel-item
+              .d-flex.flex-row
+                .c-card.p-4
+                  a.position-relative(href="https://ko.osaka-info.jp/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/osaka.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 오사카
+                .c-card.p-4
+                  a.position-relative(href="https://www.city.sapporo.jp.k.ain.hp.transer.com/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/satporo.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 삿포로
+                .c-card.p-4
+                  a.position-relative(href="https://www.yokohamajapan.com/kr/article/what-to-do/" target="_blank")
+                    img.c-img.d-block.w-100(src="/images/section2/webp/yokohama.webp" loading="lazy" decoding="async")
+                    p.position-absolute.top-50.start-50.translate-middle.c-text 요코하마
+  section#section3
+    div#section3Left.d-flex.flex-column.h-100.border.border-black
+    div#section3Right.d-flex.flex-column.h-100.border.border-white
+
+  script(src="/javascripts/script.js")
+  script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
+

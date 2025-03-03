@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NoonnuBasicGothicRegular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* primary tags */
+
+body{
+  height:100vh;
+  width:100vw;
+  scroll-behavior:smooth;
+}
+
+section{
+  height:100vh;
+  width : 100vw;
+}
+
+a{
+  text-decoration : none;
+  color : black;
+  font-family: 'SUIT-Regular';
+}
+
+/* navigation */
+#offcanvas_button{
+  background-color:rgba(225,225,225,0.6);
+  border-radius : 0 0 10px 10px;
+}
+
+.offcanvas-top{
+  background-color: rgba(225, 225, 225, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.widget-card{
+  width:15%;
+  height : 90%;
+  background-color:rgba(225,225,225,0.8);
+  border-radius:10px;
+}
+
+.col{
+  background-color : transparent;
+}
+
+.nav-brand{
+  width: 10vw;
+  height:8vh;
+  background-color:rgba(225,225,225,0.6);
+  border-radius: 10px;
+}
+
+.japan-flag{
+  width : 35%;
+}
+
+#exchangeMoney{
+  font-family : 'JalnanGothic';
+  font-size : 1.8rem;
+}
+
+#oneyen{
+  font-family : 'SUIT-Regular';
+  font-size:1.3rem;
+  color : gray;
+}
+
+.nav-item{
+  padding-left : 20px;
+}
+/* section 1 */
+#section1{
+  background-image : url('../images/section1/section1.jpg');
+  background-size : cover;
+}
+
+#section1Gradient{
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.mainText{
+  font-family : 'JalnanGothic';
+  font-size : 42px;
+  font-weight : bolder;
+}
+
+.mainText > p {
+  margin-bottom : 1px;
+}
+
+.description{
+  font-family : 'SUIT-Regular';
+  font-size : 20px;
+}
+
+.description > p{
+  margin-bottom : 1px;
+}
+
+
+/* section 2 */
+/* .mainText => section1 */
+/* .description => section1 */
+
+.carousel{
+  width: 90%;
+  height:100%;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.carousel-inner{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.carousel-item{
+  height:110%;
+}
+
+.carousel div{
+  height:100%;
+}
+
+.c-card{
+  width:33%;
+  height:100%;
+  overflow:hidden;
+}
+
+.c-card a{
+  display:flex;
+  width:100%;
+  height:100%;
+}
+
+.c-img{
+  border-radius:16px;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(1);
+  transition: .3s ease-in-out;
+}
+
+.c-card a:hover .c-img{
+  filter:brightness(0.4);
+}
+
+.c-text{
+  font-family: 'JalnanGothic';
+  font-size: 40px;
+  color:white;
+  opacity : 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.c-card a:hover .c-text{
+  opacity: 1;
+}
+
+
+/* section 3 */
+/* section 3 Left */
+#section3Left{
+  width:65%;
+}
+
+/* section3 Right */
+#section3Right{
+  width:35%;
+}
