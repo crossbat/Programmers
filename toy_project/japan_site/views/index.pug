@@ -20,10 +20,47 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
                 .d-flex.flex-column.w-100.justify-content-center(style = 'height:20%;')
                   .w-100(id = 'oneyen')  ￥1 기준
               .vr.mx-4
-              .widget-card.h-100.shadow.mx-3
-                p #{region_response[0].weather_code}
-              .widget-card.h-100.shadow.mx-3
-              .widget-card.h-100.shadow.mx-3
+              .d-flex.flex-row.justify-content-center.w-50(style="flex-wrap:wrap;")
+                #carouselExampleSlidesOnly.carousel.slide.h-100.w-100.p-0(data-bs-ride="carousel")
+                  .carousel-inner
+                    .carousel-item.active
+                      div.d-flex.flex-row.weather_widget
+                        .widget-card.h-100.shadow.mx-3.p-3
+                          .w-100.d-flex.flex-row.justify-content-between.align-items-center(style = "height:50%;")
+                            img.weather_icon.pb-2(src='/images/nav/torii.png' alt= `${region_response[0].weather_code[1]}`)
+                            p.fs-3 #{region_response[0].temperture}
+                          .d-flex.flex-column.w-100.justify-content-center(style = 'height:20%;')
+                            .w-100.location  도쿄
+                          .w-100.d-flex.flex-column.justify-content-center(style = 'height:30%;')
+                            .w-100.text-bottom(id= 'exchangeMoney') #{exc}원
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[1].weather_code[0]}
+                          p.temp #{region_response[1].temperture}
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[2].weather_code}
+                          p.temp #{region_response[2].temperture}
+                    .carousel-item
+                      .d-flex.flex-row.weather_widget
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[3].weather_code}
+                          p.temp #{region_response[3].temperture}
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[4].weather_code}
+                          p.temp #{region_response[4].temperture}
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[5].weather_code}
+                          p.temp #{region_response[5].temperture}
+                    .carousel-item
+                      .d-flex.flex-row.weather_widget
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[6].weather_code}
+                          p.temp #{region_response[6].temperture}
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[7].weather_code}
+                          p.temp #{region_response[7].temperture}
+                        .widget-card.h-100.shadow.mx-3
+                          p.weather #{region_response[8].weather_code}
+                          p.temp #{region_response[8].temperture}
       ul.nav
         li.nav-item.align-middle
           a#sc2(href="#section2")
@@ -123,5 +160,6 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
                 h5.card-title 어디로 가볼까요?
                 p.card-text 왼쪽의 지도의 핀을 클릭해보세요!
   script(src="/javascripts/script.js")
+  script(src="/javascripts/weather.js")
   script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
 
