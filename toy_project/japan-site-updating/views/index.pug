@@ -5,6 +5,12 @@ head
   link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous")
   link(href="stylesheets/style.css" rel="stylesheet")
   link(rel="stylesheet", href="https://unpkg.com/swiper/swiper-bundle.min.css")
+  link(rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin="")
+  script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin="")
 body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-behavior:smooth;")
   nav.navbar.fixed-top.p-0(style="height:70px;")
     div.container-fluid.w-75.h-100
@@ -21,47 +27,79 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
                 .d-flex.flex-column.w-100.justify-content-center(style = 'height:20%;')
                   .w-100(id = 'oneyen')  ￥1 기준
               .vr.mx-4
-              swiper-container.navSwiper(space-between='50', loop = 'true', autoplay = 'false', slides-per-view='3', centered-slides='true')
+              swiper-container.navSwiper(space-between='50', loop = 'true', autoplay = 'true', slides-per-view='3', centered-slides='true')
                 swiper-slide.widget-card.d-flex.flex-row
                   .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
-                    p.p-0 코드
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[0].weather_code}`)
                   .location_weather.w-50.h-100.d-flex.flex-column
                     .location.h-100.d-flex.align-items-center
-                      p.p-0 지역 이름
+                      p.p-0 도쿄
                     .weather.h-100.d-flex.align-items-center
-                      p.p-0 온도
-                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
-                  .weather_image.w-50.h-100
-                    p.p-0 코드
+                      p.p-0 #{weather[0].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[1].weather_code}`)
                   .location_weather.w-50.h-100.d-flex.flex-column
                     .location.h-100.d-flex.align-items-center
-                      p.p-0 지역 이름
+                      p.p-0 교토
                     .weather.h-100.d-flex.align-items-center
-                      p.p-0 온도
-                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
-                  .weather_image.w-50.h-100
-                    p.p-0 코드
+                      p.p-0 #{weather[1].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[2].weather_code}`)
                   .location_weather.w-50.h-100.d-flex.flex-column
                     .location.h-100.d-flex.align-items-center
-                      p.p-0 지역 이름
+                      p.p-0 오사카
                     .weather.h-100.d-flex.align-items-center
-                      p.p-0 온도
-                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
-                  .weather_image.w-50.h-100
-                    p.p-0 코드
+                      p.p-0 #{weather[2].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[3].weather_code}`)
                   .location_weather.w-50.h-100.d-flex.flex-column
                     .location.h-100.d-flex.align-items-center
-                      p.p-0 지역 이름
+                      p.p-0 삿포로
                     .weather.h-100.d-flex.align-items-center
-                      p.p-0 온도
-                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
-                  .weather_image.w-50.h-100
-                    p.p-0 코드
+                      p.p-0 #{weather[3].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[4].weather_code}`)
                   .location_weather.w-50.h-100.d-flex.flex-column
                     .location.h-100.d-flex.align-items-center
-                      p.p-0 지역 이름
+                      p.p-0 나고야
                     .weather.h-100.d-flex.align-items-center
-                      p.p-0 온도
+                      p.p-0 #{weather[4].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[5].weather_code}`)
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 나라
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 #{weather[5].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[6].weather_code}`)
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 후쿠오카
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 #{weather[6].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[7].weather_code}`)
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 오키나와
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 #{weather[7].temperture}&#8451
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    img.icon(src = '/images/weather/default.png' alt = `${weather[8].weather_code}`)
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 요코하마
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 #{weather[8].temperture}&#8451
       ul.nav
         li.nav-item.align-middle
           a#sc2(href="#section2")
@@ -95,25 +133,28 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
       swiper-container.Section2Swiper.p-5(space-between='50', loop = 'true', autoplay = 'true', slides-per-view='3', centered-slides='true')
         swiper-slide.board
           img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 후쿠오카
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/kyoto.webp')
+          p.cardText 교토
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/nagoya.webp')
           p.cardText 나고야
         swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
+          img.cardImage(src = 'images/section2/webp/nara.webp')
+          p.cardText 나라
         swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
+          img.cardImage(src = 'images/section2/webp/okinawa.webp')
+          p.cardText 오키나와
         swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
+          img.cardImage(src = 'images/section2/webp/satporo.webp')
+          p.cardText 삿포로
         swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
+          img.cardImage(src = 'images/section2/webp/tokyo.webp')
+          p.cardText 도쿄
         swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
-        swiper-slide.board
-          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
-          p.cardText 나고야
+          img.cardImage(src = 'images/section2/webp/yokohama.webp')
+          p.cardText 요코하마
     div#section2Footer.w-100
   section#section3.d-flex.flex-column.align-items-center
     div#section3Header.w-75.d-flex.align-items-end
@@ -124,11 +165,14 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
           p 색다른 일본여행을 생각하고 계시다면
           p 지도에 있는 핀을 클릭해보세요!
     div#section3Main.d-flex.flex-row.w-100
-      div#section3Left.d-flex.flex-column.h-100.border.border-black
-      div#section3Right.d-flex.flex-column.h-100.border.border-primary
+      div#section3Left.d-flex.h-100.justify-content-center.align-items-center
+        div#map.w-75.m-3.rounded-4.shadow-lg
+      div#section3Right.d-flex.h-100.border.border-primary
     div#section3Footer.w-100
 
+  script(src=`/javascripts/map.js`)
   script(src=`/javascripts/script.js`)
+  script(src=`/javascripts/weather.js`)
   script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js')
   script(src=`https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js`)
 

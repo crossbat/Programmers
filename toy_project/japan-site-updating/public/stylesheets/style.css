@@ -55,7 +55,7 @@ a {
 
 .widget-card {
   height: 100%;
-  background-color: rgba(225, 225, 225, 0.8);
+  background-color: rgba(225, 225, 225, 1);
   border-radius: 10px;
   padding : 20px;
 }
@@ -63,9 +63,8 @@ a {
 .exchange-card{
   width: 200px;
   height: 90%;
-  background-color: rgba(225, 225, 225, 0.8);
+  background-color: rgba(225, 225, 225, 1);
   border-radius: 10px;
-
 }
 
 .col {
@@ -104,9 +103,28 @@ a {
 .nav-item {
   padding-left: 20px;
 }
+
+.icon{
+  height: 80%;
+  width: 80%;
+  object-fit:cover;
+}
+
+.location > p{
+  font-family : 'JalnanGothic';
+  font-size : 27px;
+  padding-left: 20px !important;
+}
+
+.weather > p{
+  font-family : 'SUIT-Regular';
+  font-size : 40px;
+  padding-left:20px !important;
+}
+
 /* section 1 */
 #topPadding {
-  height: 180px;
+  height: 260px;
 }
 
 #section1 {
@@ -130,7 +148,7 @@ a {
 
 .mainText {
   font-family: "JalnanGothic";
-  font-size: 42px;
+  font-size: 3rem;
   font-weight: bolder;
 }
 
@@ -152,11 +170,11 @@ a {
 /* .description => section1 */
 
 #section2Header {
-  height: 210px;
+  height: 300px;
 }
 
 #section2Main {
-  height: calc(100% - 290px);
+  height: calc(100% - 380px);
 }
 
 .Section2Swiper{
@@ -185,7 +203,7 @@ a {
   transition: 0.3s ease-in-out;
 }
 
-.card:hover .cardImage {
+.board:hover .cardImage {
   filter: brightness(0.4);
 }
 
@@ -201,7 +219,7 @@ a {
   transition: opacity 0.3s ease-in-out;
 }
 
-.card:hover .cardText {
+.board:hover .cardText {
   opacity: 1;
 }
 
@@ -211,7 +229,7 @@ a {
 
 /* section 3 */
 #section3Header {
-  height: 210px;
+  height: 300px;
 }
 
 #section3Main {
@@ -225,6 +243,10 @@ a {
 /* section3 Right */
 #section3Right {
   width: 35%;
+}
+
+#map{
+  height: 90%;
 }
 
 #section3Footer {

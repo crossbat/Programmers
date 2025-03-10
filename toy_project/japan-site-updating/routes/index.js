@@ -4,15 +4,15 @@ var router = express.Router();
 const axios = require('axios');
 
 let region_code = [
-  '130000',
-  '260000',
-  '270000',
-  '016000',
-  '230000',
-  '290000',
-  '400000',
-  '471000',
-  '140000'
+  '130000', // 도쿄
+  '260000', // 교토
+  '270000', // 오사카
+  '016000', // 삿포로
+  '230000', // 나고야
+  '290000', // 나라
+  '400000', // 후쿠오카
+  '471000', // 오키나와
+  '140000'  // 요코하마
 ]
 
 const url = 'https://m.search.naver.com/p/csearch/content/qapirender.nhn?key=calculator&pkid=141&q=%ED%99%98%EC%9C%A8&where=m&u1=keb&u6=standardUnit&u7=0&u3=JPY&u4=KRW&u8=down&u2=1'
