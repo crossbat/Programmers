@@ -11,20 +11,57 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
       div.position-relative.w-50.h-100.d-flex.justify-content-top
         button.btn.border.border-0.h-75.shadow.px-3(id = 'offcanvas_button' type='button' data-bs-toggle='offcanvas' data-bs-target='#widget' aria-controls='offcanvasTop') 환율 & 날씨
         .offcanvas.offcanvas-top.shadow-lg(tabindex='-1' id = "widget" aria-labelledby="offcanvasTopLabel")
-          .offcanvas-body
-            .d-flex.flex-row.justify-content-center.align-items-center.w-100.h-100
-              .widget-card.shadow.mx-3.p-3
+          .offcanvas-body.d-flex.justify-content-center
+            .d-flex.flex-row.justify-content-center.align-items-center.w-75.h-100
+              .exchange-card.mx-3.p-3
                 .w-100.d-flex.flex-column.justify-content-center.align-items-start(style = "height:50%;")
                   img.japan-flag.pb-2(src='/images/nav/torii.png')
                 .w-100.d-flex.flex-column.justify-content-center(style = 'height:30%;')
-                  .w-100.text-bottom(id= 'exchangeMoney') #{exc}원
+                  .w-100.text-bottom(id= "exchangeMoney") #{exc}원
                 .d-flex.flex-column.w-100.justify-content-center(style = 'height:20%;')
                   .w-100(id = 'oneyen')  ￥1 기준
               .vr.mx-4
-              .widget-card.shadow.mx-3
-                p #{region_response[0].weather_code}
-              .widget-card.shadow.mx-3
-              .widget-card.shadow.mx-3
+              swiper-container.navSwiper(space-between='50', loop = 'true', autoplay = 'false', slides-per-view='3', centered-slides='true')
+                swiper-slide.widget-card.d-flex.flex-row
+                  .weather_image.w-50.h-100.d-flex.justify-content-center.align-items-center
+                    p.p-0 코드
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 지역 이름
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 온도
+                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
+                  .weather_image.w-50.h-100
+                    p.p-0 코드
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 지역 이름
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 온도
+                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
+                  .weather_image.w-50.h-100
+                    p.p-0 코드
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 지역 이름
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 온도
+                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
+                  .weather_image.w-50.h-100
+                    p.p-0 코드
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 지역 이름
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 온도
+                swiper-slide.widget-card.d-flex.flex-row.justify-content-center.align-items-center
+                  .weather_image.w-50.h-100
+                    p.p-0 코드
+                  .location_weather.w-50.h-100.d-flex.flex-column
+                    .location.h-100.d-flex.align-items-center
+                      p.p-0 지역 이름
+                    .weather.h-100.d-flex.align-items-center
+                      p.p-0 온도
       ul.nav
         li.nav-item.align-middle
           a#sc2(href="#section2")
@@ -55,8 +92,28 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
           p 어디로 떠날지 고민되나요?
           p 당신의 여행지가 지금 정해질지 몰라요!
     div#section2Main.d-flex.justify-content-center.align-items-center.w-100
-      .swiper-container.w-100
-        .swiper-wrapper.d-flex
+      swiper-container.Section2Swiper.p-5(space-between='50', loop = 'true', autoplay = 'true', slides-per-view='3', centered-slides='true')
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
+        swiper-slide.board
+          img.cardImage(src = 'images/section2/webp/fukuoka.webp')
+          p.cardText 나고야
     div#section2Footer.w-100
   section#section3.d-flex.flex-column.align-items-center
     div#section3Header.w-75.d-flex.align-items-end
@@ -72,7 +129,6 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
     div#section3Footer.w-100
 
   script(src=`/javascripts/script.js`)
-  script(src=`/javascripts/slider.js`)
-  script(src=`https://unpkg.com/swiper/swiper-bundle.min.js`)
+  script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js')
   script(src=`https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js`)
 
