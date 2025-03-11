@@ -1,5 +1,5 @@
 const express = require('express');
-const { body, param, validationResult, validate } = require('express-validation');
+const { body, param, validationResult, validate } = require('express-validator');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
