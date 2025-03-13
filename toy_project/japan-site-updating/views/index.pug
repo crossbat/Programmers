@@ -167,10 +167,17 @@ body.position-relative.overflow-hidden(style="height:100vh;width:100vw;scroll-be
     div#section3Main.d-flex.flex-row.w-100
       div#section3Left.d-flex.h-100.justify-content-center.align-items-center
         div#map.w-75.m-3.rounded-4.shadow-lg
-      div#section3Right.d-flex.h-100.border.border-primary
+      div#section3Right.d-flex.h-100.rounded-4.justify-content-top.align-items-center
+        div.section3Card.shadow-lg
+          .d-flex.flex-column.w-100.h-100.p-4
+            img.w-100.h-100.rounded-4.mb-3.object-fit-cover(src = '/images/section1/section1.jpg')
+            .section3description.w-100.h-100.rounded-4.pt-2.px-4
+              p.descriptionTitle.fs-4 가보고 싶은 곳이 있나요?
+              p.descriptionContent 왼쪽 지도에 있는 핀들을 클릭해보세요!
     div#section3Footer.w-100
-
+  
   script(src=`/javascripts/map.js`)
+  script(src='/javascripts/mapClick.js')
   script(src=`/javascripts/script.js`)
   script(src=`/javascripts/weather.js`)
   script(src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js')

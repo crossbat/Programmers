@@ -8,11 +8,13 @@ const books = require('./routes/books');
 const carts = require('./routes/carts');
 const likes = require('./routes/likes');
 const orders = require('./routes/orders');
+const categories = require('./routes/categories')
 
 app.use('/user', users);
 app.use('/', books);
 app.use('/carts', carts);
 app.use('/likes', likes);
 app.use('/orders', orders);
+app.use('/categories', categories);
 
 app.listen(process.env.PORT);

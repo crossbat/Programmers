@@ -249,6 +249,23 @@ a {
   height: 90%;
 }
 
+.leaflet-control-layers-list{
+  width: 250px;
+}
+
+.section3Card{
+  height: 90%;
+  width: 80%;
+}
+
+.descriptionTitle{
+  font-family : "JalnanGothic"
+}
+
+.descriptionContent{
+  font-family : "SUIT-Regular"
+}
+
 #section3Footer {
   height: 80px;
 }

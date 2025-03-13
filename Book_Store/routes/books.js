@@ -1,22 +1,13 @@
 const express = require('express');
-const { body, param, validationResult, validate } = require('express-validator');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
-dotenv.config();
+const { bookMain, bookSearch, eachBook } = require('../controller/BookController')
 
 router.use(express.json());
 
-router.route('/').get((req, res) => {
-  res.json('main page');
-});
+router.route('/').get(bookMain);
 
-router.route('/books').get((req, res) => {
-  res.json('all book');
-});
+router.route('/books').get(bookSearch);
 
-router.route('/books/:bookId').get((req, res) => {
-  res.json('specific book');
-});
+router.route('/books/:id').get(eachBook);
 
 module.exports = router;
