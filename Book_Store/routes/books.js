@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { bookMain, bookSearch, eachBook } = require('../controller/BookController')
+const { bookSearch, eachBook } = require('../controller/BookController')
 
 router.use(express.json());
 
-router.route('/').get(bookMain);
 
-router.route('/books').get(bookSearch);
+router.route('/').get(bookSearch);
 
-router.route('/books/:id').get(eachBook);
+router.route('/:id').get(eachBook);
 
 module.exports = router;

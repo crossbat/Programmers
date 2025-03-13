@@ -11,7 +11,7 @@ const orders = require('./routes/orders');
 const categories = require('./routes/categories')
 
 app.use('/user', users);
-app.use('/', books);
+app.use('/books', books);
 app.use('/carts', carts);
 app.use('/likes', likes);
 app.use('/orders', orders);

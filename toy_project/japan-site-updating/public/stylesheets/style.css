@@ -212,7 +212,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 2.6vw;
   color : white;
   font-family: "JalnanGothic";
   opacity: 0;
@@ -259,11 +259,12 @@ a {
 }
 
 .descriptionTitle{
-  font-family : "JalnanGothic"
+  font-family : "JalnanGothic";
 }
 
 .descriptionContent{
-  font-family : "SUIT-Regular"
+  font-family : "SUIT-Regular";
+  font-size : 20px;
 }
 
 #section3Footer {

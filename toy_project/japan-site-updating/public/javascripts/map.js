@@ -20,13 +20,6 @@ let animationMarker = L.icon({
   popupAnchor: [3, -60]
 })
 
-let horrorMarker = L.icon({
-  iconUrl: '/images/section3/map/marker/ghost-marker.png',
-  iconSize: [55, 55], // size of the icon
-  iconAnchor: [25, 55], // point of the icon which will correspond to marker's location
-  popupAnchor: [3, -60]
-})
-
 let foodMarker = L.icon({
   iconUrl: '/images/section3/map/marker/food-marker.png',
   iconSize: [55, 55], // size of the icon
@@ -58,27 +51,15 @@ let natureMarker = L.icon({
 //marker
 // 🗡️ 애니메이션 & 레트로 감성 여행
 const animations = [
-  createMarker(32.88, 131.10, animationMarker, 'mt_aso', '<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 아소산이에요'),
-  createMarker(33.94, 130.96, animationMarker, 'mojiko_retro', '<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 모지코 레트로에요'),
-  createMarker(34.65, 135.51, animationMarker, 'shinsekai', '<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 신세카이에요')
+  createMarker(32.88, 131.10, animationMarker, 'mt_aso', '<b>👾 레트로 감성 여행</b><br>여기는 아소산이에요'),
+  createMarker(33.94, 130.96, animationMarker, 'mojiko_retro', '<b>👾 레트로 감성 여행</b><br>여기는 모지코 레트로에요'),
+  createMarker(34.65, 135.51, animationMarker, 'shinsekai', '<b>👾 레트로 감성 여행</b><br>여기는 신세카이에요')
 ]
-//let mt_aso = L.marker([32.88, 131.10], { icon: animationMarker }).bindPopup('<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 아소산이에요')
-//let mojiko_retro = L.marker([33.94, 130.96], { icon: animationMarker }).bindPopup('<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 모지코 레트로에요')
-//let shinsekai = L.marker([34.65, 135.51], { icon: animationMarker }).bindPopup('<b>🗡️ 애니메이션 & 레트로 감성 여행</b><br>여기는 신세카이에요')
+//let mt_aso = L.marker([32.88, 131.10], { icon: animationMarker }).bindPopup('<b>👾 레트로 감성 여행</b><br>여기는 아소산이에요')
+//let mojiko_retro = L.marker([33.94, 130.96], { icon: animationMarker }).bindPopup('<b>👾 레트로 감성 여행</b><br>여기는 모지코 레트로에요')
+//let shinsekai = L.marker([34.65, 135.51], { icon: animationMarker }).bindPopup('<b>👾 레트로 감성 여행</b><br>여기는 신세카이에요')
 
 let anime_retro_trip = L.layerGroup(animations);
-
-// 👻 심령 & 공포 체험 여행
-const horrors = [
-  createMarker(35.44, 139.65, horrorMarker, 'yokohama_foreign_cemetery', '<b>👻 심령 & 공포 체험 여행</b><br>여기는 요코하마 외국인 묘지에요'),
-  createMarker(39.70, 141.15, horrorMarker, 'tsuruno_goten', '<b>👻 심령 & 공포 체험 여행</b><br>여기는 츠루노고텐이에요'),
-  createMarker(34.99, 135.79, horrorMarker, 'kiyomizu_temple', '<b>👻 심령 & 공포 체험 여행</b><br>여기는 기요미즈데라에요')
-]
-//let yokohama_foreign_cemetery = L.marker([35.44, 139.65], { icon: horrorMarker }).bindPopup('<b>👻 심령 & 공포 체험 여행</b><br>여기는 요코하마 외국인 묘지에요')
-//let tsuruno_goten = L.marker([39.70, 141.15], { icon: horrorMarker }).bindPopup('<b>👻 심령 & 공포 체험 여행</b><br>여기는 츠루노고텐이에요')
-//let kiyomizu_temple = L.marker([34.99, 135.79], { icon: horrorMarker }).bindPopup('<b>👻 심령 & 공포 체험 여행</b><br>여기는 기요미즈데라에요')
-
-let horror_trip = L.layerGroup(horrors);
 
 // 🍣 미식 여행
 const foods = [
@@ -141,7 +122,7 @@ let osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
 let map = L.map('map', {
   center: [36.65, 138.84],
   zoom: 6,
-  layers: [osm, anime_retro_trip, horror_trip, food_trip, onsen_trip, art_trip, nature_trip]
+  layers: [osm, anime_retro_trip, food_trip, onsen_trip, art_trip, nature_trip]
 })
 
 let baseMaps = {
@@ -151,7 +132,6 @@ let baseMaps = {
 
 let overlayMaps = {
   "🗡️ 애니메이션 & 레트로 감성 여행": anime_retro_trip,
-  "👻 심령 & 공포 체험 여행": horror_trip,
   "🍣 미식 여행": food_trip,
   "♨️ 온천 & 료칸 힐링 여행": onsen_trip,
   "🎨 아트 & 건축 여행": art_trip,
