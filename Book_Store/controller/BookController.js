@@ -8,7 +8,7 @@ dotenv.config();
 const bookSearch = (req, res) => {
   let { category_id, recent, limit, currentPage } = req.query
   let offset = limit * (currentPage - 1)
-  let sql = 'SELECT * FROM books'
+  let sql = 'SELECT *, (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes FROM books'
 
   offset = parseInt(offset)
   limit = parseInt(limit)
@@ -20,14 +20,17 @@ const bookSearch = (req, res) => {
   } else if (category_id) {
     sql += ' WHERE category_id=?'
   } else if (recent) {
+    values = values.slice(1, 3)
     sql += ' WHERE pub_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()'
+  } else {
+    values = values.slice(1, 3)
+    sql += ' LIMIT ? OFFSET ?;'
   }
-
-  sql += ' LIMIT ? OFFSET ?;'
 
   conn.query(sql, values, (err, results) => {
     if (err) {
       console.log(err)
+      console.log(values)
       return res.status(StatusCodes.BAD_REQUEST).end()
     }
     if (results.length) {
@@ -41,8 +44,15 @@ const bookSearch = (req, res) => {
 
 const eachBook = (req, res) => {
   let { id } = req.params
-  let sql = "SELECT * FROM books LEFT JOIN categories ON books.category_id = categories.id WHERE books.id = ?"
-  conn.query(sql, id, (err, results) => {
+  let { user_id } = req.body
+  id = parseInt(id)
+  user_id = parseInt(user_id)
+
+  let likesSql = ', (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes'
+  let likedSql = ', (SELECT EXISTS(SELECT * FROM likes WHERE liked_book_id=? AND user_id=?)) AS liked'
+  let sql = `SELECT *${likesSql}${likedSql} FROM books LEFT JOIN categories ON books.category_id = categories.category_id WHERE books.id = ?`
+  let values = [id, user_id, id]
+  conn.query(sql, values, (err, results) => {
     if (err) {
       console.log(err)
       console.log(id)

@@ -1,17 +1,13 @@
 const express = require('express');
-const { body, param, validationResult, validate } = require('express-validator');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const { route } = require('./users');
+const { addLikes, deleteLikes } = require('../controller/LikeController')
 dotenv.config();
 
 router.use(express.json());
 
-router.route('/:bookId').post((req, res) => {
-  res.json('좋아요 눌렀음');
-}).delete((req, res) => {
-  res.json('좋아요 취소했음')
-})
+router.route('/:id')
+  .post(addLikes)
+  .delete(deleteLikes)
 
 module.exports = router;
