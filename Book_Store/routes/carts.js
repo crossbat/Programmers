@@ -5,17 +5,14 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const { addCart, viewCart, deleteCart } = require('../controller/CartItemController')
+
 router.use(express.json());
 
-router.route('/').post((req, res) => {
-  res.json('장바구니 담기');
-})
-  .get((req, res) => {
-    res.json('장바구니 조회하기');
-  });
+router.route('/')
+  .post(addCart)
+  .get(viewCart);
 
-router.route('/:cartId').delete((req, res) => {
-  res.json('장바구니 요소 삭제하기')
-})
+router.route('/:user_id').delete(deleteCart)
 
 module.exports = router;
