@@ -3,19 +3,16 @@ const { body, param, validationResult, validate } = require('express-validator')
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+
+const { addOrders, viewOrders, eachOrder } = require('../controller/OrderController')
+
 dotenv.config();
 
 router.use(express.json());
 
-router.route('/').post((req, res) => {
-  res.json('결제');
-}).get((req, res) => {
-  res.json('결제 내역 조회');
-});
+router.route('/').post(addOrders).get(viewOrders);
 
-router.route('/:orderId').get((req, res) => {
-  res.json('주문 상세조회')
-})
+router.route('/:orderId').get(eachOrder)
 
 
 module.exports = router;
