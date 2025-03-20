@@ -12,7 +12,7 @@ router.use(express.json());
 
 router.route('/').post(addOrders).get(viewOrders);
 
-router.route('/:orderId').get(eachOrder)
+router.route('/:id').get(eachOrder)
 
 
 module.exports = router;

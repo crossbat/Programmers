@@ -11,47 +11,71 @@ const addOrders = async (req, res) => {
   });
 
   const { items, firstBookTitle, delivery, totalCount, totalPrice, user_id } = req.body;
-  let delivery_id;
-  let order_id;
 
   let sql = 'INSERT INTO deliveries (address, receiver, contact) VALUES (?, ?, ?)'
   let value = [delivery.address, delivery.receiver, delivery.contact]
-  let [results] = await conn.query(sql, value);
+  let [results] = await conn.execute(sql, value);
 
-  console.log(results)
+  let delivery_id = results.insertId;
 
   sql = 'INSERT INTO orders(book_title, total_count, total_price, user_id, delivery_id) VALUES (?, ?, ?, ?, ?)';
   value = [firstBookTitle, totalCount, totalPrice, user_id, delivery_id];
-  conn.query(sql, value, (err, results) => {
-    if (err) {
-      console.log(err);
-      return res.status(StatusCodes.BAD_REQUEST).end();
-    }
+  [results] = await conn.execute(sql, value)
 
-    order_id = results.insertId;
-  })
+  let order_id = results.insertId
 
+  sql = 'SELECT book_id, count FROM cartItems WHERE id IN (?)'
+  let [order_items, fields] = await conn.query(sql, [items]);
   sql = 'INSERT INTO ordered_books(order_id, book_id, count) VALUES ?'
   value = [];
-  items.forEach((item) => {
+  order_items.forEach((item) => {
     value.push([order_id, item.book_id, item.count]);
-    console.log(value)
   })
-  conn.query(sql, [value], (err, results) => {
-    if (err) {
-      console.log(err)
-      return res.status(StatusCodes.BAD_REQUEST).end()
-    }
-    return res.status(StatusCodes.CREATED).json(results)
-  })
+  results = await conn.query(sql, [value])
+
+  results = await delete_cart_items(conn, items);
+
+  return res.status(StatusCodes.OK).json(results)
 }
 
-const viewOrders = (req, res) => {
-  res.json('결제 내역 조회');
+const delete_cart_items = async (conn, items) => {
+  let sql = 'DELETE FROM cartItems WHERE id IN (?)'
+
+  let results = await conn.query(sql, [items])
+  return results
 }
 
-const eachOrder = (req, res) => {
-  res.json('주문 상세조회')
+const viewOrders = async (req, res) => {
+  const mysql = require('mysql2/promise')
+  const conn = await mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    database: 'BookStore',
+    password: '0560',
+    dateStrings: true
+  });
+
+  let sql = 'SELECT orders.id, book_title, total_count, total_price, address, receiver, contact FROM orders LEFT JOIN deliveries ON orders.delivery_id = deliveries.id';
+
+  let [rows, fields] = await conn.query(sql)
+  return res.status(StatusCodes.OK).json(rows)
+}
+
+const eachOrder = async (req, res) => {
+  const { id } = req.params
+  const mysql = require('mysql2/promise')
+  const conn = await mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    database: 'BookStore',
+    password: '0560',
+    dateStrings: true
+  });
+
+  let sql = 'SELECT book_id, title, author, price, count from ordered_books left join books on ordered_books.book_id = books.id where order_id = ?';
+
+  let [rows, fields] = await conn.query(sql, [id])
+  return res.status(StatusCodes.OK).json(rows)
 }
 
 module.exports = {
