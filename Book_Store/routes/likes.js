@@ -6,7 +6,7 @@ dotenv.config();
 
 router.use(express.json());
 
-router.route('/:id')
+router.route('/:BookId')
   .post(addLikes)
   .delete(deleteLikes)
 
