@@ -1,9 +1,7 @@
 const conn = require('../database')
+const auth = require('../Authorization.js');
 const { StatusCodes } = require('http-status-codes');
-const jwt = require('jsonwebtoken')
-const { body, param, validationResult, validate } = require('express-validator');
-const dotenv = require('dotenv');
-dotenv.config();
+const jwt = require('jsonwebtoken');
 
 const bookSearch = (req, res) => {
   let { category_id, recent, limit, currentPage } = req.query
@@ -12,6 +10,8 @@ const bookSearch = (req, res) => {
 
   offset = parseInt(offset)
   limit = parseInt(limit)
+
+  let allBooksRes = {};
 
   let values = [category_id, limit, offset]
 
@@ -34,24 +34,50 @@ const bookSearch = (req, res) => {
       return res.status(StatusCodes.BAD_REQUEST).end()
     }
     if (results.length) {
-      return res.status(StatusCodes.OK).json(results)
+      allBooksRes.books = results
     } else {
       return res.status(StatusCodes.NOT_FOUND).end()
     }
   })
-}
 
+  sql = 'SELECT found_rows()'
+  conn.query(sql, (err, results) => {
+    if (err) {
+      res.status(StatusCodes.BAD_REQUEST).end();
+    }
+
+    let pagination = {};
+    pagination.totalCount = results[0]['found_rows()']
+    pagination.currentPage = currentPage;
+
+    allBooksRes.pagination = pagination
+
+    return res.status(StatusCodes.OK).json(allBooksRes)
+  });
+}
 
 const eachBook = (req, res) => {
   let { id } = req.params
-  let { user_id } = req.body
   id = parseInt(id)
-  user_id = parseInt(user_id)
-
   let likesSql = ', (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes'
   let likedSql = ', (SELECT EXISTS(SELECT * FROM likes WHERE liked_book_id=? AND user_id=?)) AS liked'
-  let sql = `SELECT *${likesSql}${likedSql} FROM books LEFT JOIN categories ON books.category_id = categories.category_id WHERE books.id = ?`
-  let values = [id, user_id, id]
+  let sql;
+
+  let authorization = auth(req);
+  if (auth instanceof jwt.TokenExpiredError) {
+    return res.status(StatusCodes.UNAUTHORIZED).json({
+      message: '토큰이 만료되었습니다.'
+    });
+  } else if (authorization instanceof jwt.JsonWebTokenError) {
+    return res.status(StatusCodes.BAD_REQUEST).json({
+      message: '토큰이 조작되거나 올바르지 않습니다.'
+    })
+  } else if (authorization instanceof ReferenceError) {
+    sql = `SELECT *${likesSql} FROM books LEFT JOIN categories ON books.category_id = categories.category_id WHERE books.id = ?`
+  } else {
+    sql = `SELECT *${likesSql}${likedSql} FROM books LEFT JOIN categories ON books.category_id = categories.category_id WHERE books.id = ?`
+  }
+  let values = [id, authorization.id, id]
   conn.query(sql, values, (err, results) => {
     if (err) {
       console.log(err)

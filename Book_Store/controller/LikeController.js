@@ -1,14 +1,12 @@
 const conn = require('../database')
 const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
 const authorization = require('../Authorization.js');
-dotenv.config();
 
 const addLikes = (req, res) => {
   let { BookId } = req.params
   BookId = parseInt(BookId)
-  const user_id = authorization(req)
+  const auth = authorization(req)
 
   if (auth instanceof jwt.TokenExpiredError) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
@@ -21,7 +19,7 @@ const addLikes = (req, res) => {
   } else {
     const sql1 = 'SELECT * FROM likes WHERE user_id=? AND liked_book_id=?'
     const sql2 = 'INSERT INTO likes VALUES(?, ?)'
-    const values = [user_id, BookId]
+    const values = [auth.id, BookId]
     conn.query(sql1, values, (err, results) => {
       if (results[0]) {
         return res.status(StatusCodes.OK).json({
@@ -46,7 +44,8 @@ const addLikes = (req, res) => {
 const deleteLikes = (req, res) => {
   let { BookId } = req.params
   BookId = parseInt(BookId)
-  const user_id = authorization(req);
+  const auth = authorization(req);
+
   if (auth instanceof jwt.TokenExpiredError) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
       message: '로그인 세션이 만료되었습니다'
@@ -57,7 +56,7 @@ const deleteLikes = (req, res) => {
     })
   } else {
     const sql = 'DELETE FROM likes WHERE user_id=? AND liked_book_id=?'
-    const values = [user_id, BookId]
+    const values = [auth.id, BookId]
     conn.query(sql, values, (err, results) => {
       if (err) {
         console.log(err)

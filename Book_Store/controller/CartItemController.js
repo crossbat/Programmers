@@ -1,9 +1,7 @@
 const conn = require('../database')
 const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
 const authorization = require('../Authorization.js')
-dotenv.config();
 
 const addCart = (req, res) => {
   const { book_id, count } = req.body
@@ -43,24 +41,18 @@ const viewCart = (req, res) => {
     })
   } else {
     let sql = 'SELECT cartItems.id, book_id, title, summary, count, price FROM cartItems LEFT JOIN books on cartItems.book_id = books.id WHERE user_id = ?'
-    if (selected == undefined) {
-      conn.query(sql, auth.id, (err, results) => {
-        if (err) {
-          console.log(err)
-          return res.status(StatusCodes.BAD_REQUEST).end()
-        }
-        return res.status(StatusCodes.OK).json(results)
-      })
-    } else {
+    if (selected[0]) {
+      let values = [auth.id, selected]
       sql += ' AND cartItems.id IN (?)'
-      conn.query(sql, [auth.id, selected], (err, results) => {
-        if (err) {
-          console.log(err)
-          return res.status(StatusCodes.BAD_REQUEST).end()
-        }
-        return res.status(StatusCodes.OK).json(results)
-      })
     }
+    values = [auth.id]
+    conn.query(sql, values, (err, results) => {
+      if (err) {
+        console.log(err)
+        return res.status(StatusCodes.BAD_REQUEST).end()
+      }
+      return res.status(StatusCodes.OK).json(results)
+    })
   }
 }
 
