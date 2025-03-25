@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const bookSearch = (req, res) => {
   let { category_id, recent, limit, currentPage } = req.query
   let offset = limit * (currentPage - 1)
-  let sql = 'SELECT *, (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes FROM books'
+  let sql = 'SELECT SQL_CALC_FOUND_ROWS *, (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes FROM books'
 
   offset = parseInt(offset)
   limit = parseInt(limit)
@@ -64,7 +64,7 @@ const eachBook = (req, res) => {
   let sql;
 
   let authorization = auth(req);
-  if (auth instanceof jwt.TokenExpiredError) {
+  if (authorization instanceof jwt.TokenExpiredError) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
       message: '토큰이 만료되었습니다.'
     });
