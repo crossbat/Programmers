@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.board{
+  background-color : white;
+  border-radius : 8px;
+  box-shadow : 0 2px 4px rgba(0,0,0,0.1);
+  overflow : hidden;
+  color : black;
+  font-size : 20px;
+  text-align : left;
+}
+
+.board > ul > li > span{
+  margin-left : 10px;
+}
+
+.container{
+  max-width : 800px;
+  margin : 0 auto;
+  background-color : #282c34;
+  color : white;
+  padding : 20px;
+  text-align : center;
+}
+
+.text{
+  background-color : blueviolet;
+  color : white;
+  font-size : 48px;
+  font-weight: bold;
+  padding : 20px;
+}
