@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { appContainer, board, buttons } from './types/App.css'
+import BoardList from './components/BoardList/BoardList'
 
 function App() {
+  const [activeBoardId, setActiveBoardId] = useState('board-0');
   return (
     <div className={appContainer}>
+      <BoardList activeBoardId={activeBoardId} setActiveBoardId={setActiveBoardId} />
       <div className={board}>
       </div>
       <div>
