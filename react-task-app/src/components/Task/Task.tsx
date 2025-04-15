@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { ITask } from "../../types"
 import { container, description, title } from "./Task.css";
 
 type TTaskProps = {
