@@ -9,6 +9,7 @@ import { addBoardLog } from "../../store/slices/loggerSlice";
 import { v4 } from "uuid";
 import { setModalData } from "../../store/slices/modalSlice";
 import { deleteButton, header, listWrapper, name } from "./List.css";
+import { Droppable } from "react-beautiful-dnd";
 
 
 type TListProps = {
@@ -34,20 +35,25 @@ const List: FC<TListProps> = ({ list, boardId }) => {
   }
 
   return (
-    <div className={listWrapper}>
-      <div className={header}>
-        <div className={name}>
-          {list.listName}
+    <Droppable droppableId={list.listId} isDropDisabled={false} isCombineEnabled={false} ignoreContainerClipping={true} direction="vertical">
+      {provided => (
+        <div className={listWrapper} {...provided.droppableProps} ref={provided.innerRef}>
+          <div className={header}>
+            <div className={name}>
+              {list.listName}
+            </div>
+            <GrSubtract onClick={() => handleListDelete(list.listId)} className={deleteButton} />
+          </div>
+          {list.tasks.map((task, index) => (
+            <div key={task.taskId} onClick={() => handleTaskChange(boardId, list.listId, task.taskId, task)}>
+              <Tasks taskName={task.taskName} taskDescription={task.taskDescription} boardId={boardId} id={task.taskId} index={index} />
+            </div>
+          ))}
+          {provided.placeholder}
+          <ActionButton boardId={boardId} listId={list.listId} />
         </div>
-        <GrSubtract onClick={() => handleListDelete(list.listId)} className={deleteButton} />
-      </div>
-      {list.tasks.map((task, index) => (
-        <div key={task.taskId} onClick={() => handleTaskChange(boardId, list.listId, task.taskId, task)}>
-          <Tasks taskName={task.taskName} taskDescription={task.taskDescription} boardId={boardId} id={task.taskId} index={index} />
-        </div>
-      ))}
-      <ActionButton boardId={boardId} listId={list.listId} />
-    </div>
+      )}
+    </Droppable>
   )
 }
 
