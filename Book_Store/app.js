@@ -1,7 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 
 const users = require('./routes/users');
 const books = require('./routes/books');

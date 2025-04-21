@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { BorderRadius, ButtonScheme, ButtonSize } from "../../style/styled";
 
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   size: ButtonSize;
   scheme: ButtonScheme;
