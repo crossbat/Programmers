@@ -4,17 +4,18 @@ import { BorderRadius, ButtonScheme, ButtonSize } from "../../style/styled";
 
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  children: ReactNode;
   size: ButtonSize;
   scheme: ButtonScheme;
   border?: BorderRadius;
   disabled?: boolean;
   isLoading?: boolean;
+  onClick?: () => void;
 }
 
-export default function Button({ children, size, scheme, disabled, isLoading, border }: Props) {
+export default function Button({ children, size, scheme, disabled, isLoading, onClick }: Props) {
   return (
-    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} border={'default'}>{children}</ButtonStyle>
+    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} onClick={onClick}>{children}</ButtonStyle>
   )
 }
 

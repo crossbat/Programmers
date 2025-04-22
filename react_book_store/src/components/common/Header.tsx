@@ -3,10 +3,11 @@ import logo from '../../assets/images/logo.png'
 import { FaSignInAlt, FaRegUser } from 'react-icons/fa'
 import { Link } from "react-router-dom"
 import { useCategory } from "../../hook/useCategory"
+import { useAuthStore } from "../../store/authStore"
 
 export default function Header() {
   const { category } = useCategory();
-  console.log(category);
+  const { isLoggedIn, storeLogout } = useAuthStore();
 
   return (
     <HeaderStyle>
@@ -27,20 +28,40 @@ export default function Header() {
         </ul>
       </nav>
       <nav className="auth">
-        <ul>
-          <li>
-            <a href='/login'>
-              <FaSignInAlt />
-              로그인
-            </a>
-          </li>
-          <li>
-            <a href='/signup'>
-              <FaRegUser />
-              회원가입
-            </a>
-          </li>
-        </ul>
+        {
+          isLoggedIn && (
+            <ul>
+              <li>
+                <Link to='/cart'>장바구니</Link>
+              </li>
+              <li>
+                <Link to='/orderlist'>주문내역</Link>
+              </li>
+              <li>
+                <button onClick={storeLogout}>로그아웃</button>
+              </li>
+
+            </ul>
+          )
+        }
+        {
+          !isLoggedIn && (
+            <ul>
+              <li>
+                <a href='/login'>
+                  <FaSignInAlt />
+                  로그인
+                </a>
+              </li>
+              <li>
+                <a href='/signup'>
+                  <FaRegUser />
+                  회원가입
+                </a>
+              </li>
+            </ul>
+          )
+        }
       </nav>
     </HeaderStyle>
   )
@@ -86,14 +107,16 @@ border-bottom : 1px solid ${({ theme }) => theme.colors.background};
     display : flex;
     gap : 16px;
     li{
-      a{
+      a, button{
         font-size : 1.5rem;
         font-weight : 600;
         text-decoration : none;
         display : flex;
         align-items : center;
         line-height : 1;
-
+        background : none;
+        border : 0;
+        cursor : pointer;
         svg{
           margin-right : 6px;
         }
