@@ -3,16 +3,18 @@ import styled from "styled-components";
 import { Book } from "../../models/book.model";
 import { formatNumber } from "../../utils/format";
 import { getImgSrc } from "../../utils/images";
+import { ViewMode } from "./BooksViewSwitcher";
 
 interface Props {
-  book: Book
+  book: Book;
+  view?: ViewMode;
 }
 
-export default function BookItem({ book }: Props) {
+export default function BookItem({ book, view }: Props) {
   return (
-    <BookItemStyle>
+    <BookItemStyle view={view}>
       <div className="img">
-        <img src={getImgSrc(book.img)} alt={book.title} />
+        <img src={getImgSrc(book.image)} alt={book.title} />
       </div>
       <div className="content">
         <h2 className="title">{book.title}</h2>
@@ -23,25 +25,26 @@ export default function BookItem({ book }: Props) {
           <FaHeart />
           <span>{book.likes}</span>
         </div>
-
       </div>
     </BookItemStyle>
   )
 }
 
-const BookItemStyle = styled.div`
+const BookItemStyle = styled.div<Pick<Props, 'view'>>`
 display : flex;
-flex-direction : column;
+flex-direction : ${({ view }) => (view === 'grid' ? 'column' : 'row')};
 box-shadow : 0 0 4px rgba(0,0,0,0.2);
 
 .img{
   border-radius : ${({ theme }) => theme.borderRadius.default};
   overflow: hidden;
+  width : ${({ view }) => (view === 'grid' ? 'auto' : '160px')};
   img{
     max-width : 100%;
   }
 }
 .content {
+  flex: ${({ view }) => (view === 'grid' ? 0 : 1)};
   padding : 16px;
   position:relative;
   .title{

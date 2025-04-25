@@ -15,7 +15,7 @@ export interface SignupProps {
 
 export default function Signup() {
   const navigate = useNavigate();
-  const showAlert = useAlert();
+  const { showAlert } = useAlert();
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('')
   //

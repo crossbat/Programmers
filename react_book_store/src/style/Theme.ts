@@ -45,11 +45,15 @@ export const light: DefaultTheme = {
     normal: {
       color: 'black',
       backgroundColor: 'lightgray'
-    }
+    },
+    like: {
+      color: 'white',
+      backgroundColor: 'coral'
+    },
   },
   borderRadius: {
     default: {
-      borderRadius: '4px',
+      borderRadius: '4px'
     }
   },
   layout: {

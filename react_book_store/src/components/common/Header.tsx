@@ -9,6 +9,11 @@ export default function Header() {
   const { category } = useCategory();
   const { isLoggedIn, storeLogout } = useAuthStore();
 
+  const Logout = () => {
+    storeLogout();
+    window.location.reload();
+  }
+
   return (
     <HeaderStyle>
       <h1 className="logo">
@@ -38,7 +43,7 @@ export default function Header() {
                 <Link to='/orderlist'>주문내역</Link>
               </li>
               <li>
-                <button onClick={storeLogout}>로그아웃</button>
+                <button onClick={Logout}>로그아웃</button>
               </li>
 
             </ul>

@@ -8,3 +8,17 @@ export interface Order {
   totalQuantity: string;
   totalPrice: string;
 }
+
+export interface OrderSheet {
+  items: number[];
+  totalCount: number;
+  totalPrice: number;
+  firstBookTitle: string;
+  delivery: Delivery;
+}
+
+export interface Delivery {
+  address: string;
+  receiver: string;
+  contact: string;
+}

@@ -17,7 +17,7 @@ export interface SignupProps {
 
 export default function Login() {
   const navigate = useNavigate();
-  const showAlert = useAlert();
+  const { showAlert } = useAlert();
 
   const { isLoggedIn, storeLogin, storeLogout } = useAuthStore();
 
@@ -27,6 +27,7 @@ export default function Login() {
       storeLogin(res.token);
       showAlert('로그인이 완료되었습니다.');
       navigate('/');
+      window.location.reload();
     }, (error) => {
       showAlert('로그인에 실패하였습니다.')
     })

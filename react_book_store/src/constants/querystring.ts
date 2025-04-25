@@ -1,4 +1,6 @@
 export const QUERYSTRING = {
   CATEGORY_ID: 'category_id',
-  NEWS: 'news'
+  RECENT: 'recent',
+  PAGE: 'page',
+  VIEW: 'view'
 }

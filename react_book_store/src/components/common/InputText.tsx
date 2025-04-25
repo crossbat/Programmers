@@ -2,7 +2,7 @@ import React, { ForwardedRef, forwardRef } from "react";
 import { styled } from "styled-components";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  placeholder: string;
+  placeholder?: string;
   inputType?: 'text' | 'email' | 'password' | 'number';
 }
 

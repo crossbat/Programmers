@@ -23,10 +23,10 @@ export default function BooksFilter() {
   const handleNews = () => {
     const newSearchParams = new URLSearchParams(searchParams);
 
-    if (newSearchParams.get(QUERYSTRING.NEWS)) {
-      newSearchParams.delete(QUERYSTRING.NEWS);
+    if (newSearchParams.get(QUERYSTRING.RECENT)) {
+      newSearchParams.delete(QUERYSTRING.RECENT);
     } else {
-      newSearchParams.set(QUERYSTRING.NEWS, 'true')
+      newSearchParams.set(QUERYSTRING.RECENT, 'true')
     }
 
     setSearchParams(newSearchParams)
@@ -42,7 +42,7 @@ export default function BooksFilter() {
         }
       </div>
       <div className="new">
-        <Button size="medium" scheme={searchParams.get(QUERYSTRING.NEWS) ? 'primary' : 'normal'} onClick={() => handleNews()}>신간</Button>
+        <Button size="medium" scheme={searchParams.get(QUERYSTRING.RECENT) ? 'primary' : 'normal'} onClick={() => handleNews()}>신간</Button>
       </div>
     </BooksFilterStyle>
   )

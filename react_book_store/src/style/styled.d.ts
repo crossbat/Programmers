@@ -5,7 +5,7 @@ type ColorKey = 'primary' | 'secondary' | 'third' | 'background' | "border" | 't
 export type HeadingSize = "large" | "medium" | "small";
 
 export type ButtonSize = "large" | "medium" | "small";
-export type ButtonScheme = "primary" | 'normal';
+export type ButtonScheme = "primary" | 'normal' | 'like';
 
 export type BorderRadius = "default";
 
