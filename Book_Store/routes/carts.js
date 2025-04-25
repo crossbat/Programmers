@@ -13,6 +13,6 @@ router.route('/')
   .post(addCart)
   .get(viewCart);
 
-router.route('/:user_id').delete(deleteCart)
+router.route('/:cart_id').delete(deleteCart)
 
 module.exports = router;

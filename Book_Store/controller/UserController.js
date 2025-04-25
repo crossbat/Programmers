@@ -42,13 +42,9 @@ const login = (req, res) => {
       res.cookie('token', token, {
         httpOnly: true
       })
-      res.status(StatusCodes.OK).json({
-        message: `${loginUser.email}님이 로그인 되었습니다.`
-      })
+      res.status(StatusCodes.OK).json({ ...results[0], token: token });
     } else {
-      res.status(StatusCodes.UNAUTHORIZED).json({
-        message: '일치하는 회원정보가 없습니다.'
-      })
+      res.status(StatusCodes.UNAUTHORIZED).end();
     }
   })
 }

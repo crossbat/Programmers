@@ -36,7 +36,7 @@ const bookSearch = (req, res) => {
     if (results.length) {
       allBooksRes.books = results
     } else {
-      return res.status(StatusCodes.NOT_FOUND).end()
+      allBooksRes.books = []
     }
   })
 
@@ -44,15 +44,18 @@ const bookSearch = (req, res) => {
   conn.query(sql, (err, results) => {
     if (err) {
       res.status(StatusCodes.BAD_REQUEST).end();
+    } else if (allBooksRes.books.length === 0) {
+      return res.status(StatusCodes.NOT_FOUND).end();
+    } else {
+      let pagination = {};
+      pagination.totalCount = results[0]['found_rows()']
+      pagination.currentPage = currentPage;
+
+      allBooksRes.pagination = pagination
+
+      return res.status(StatusCodes.OK).json(allBooksRes)
     }
 
-    let pagination = {};
-    pagination.totalCount = results[0]['found_rows()']
-    pagination.currentPage = currentPage;
-
-    allBooksRes.pagination = pagination
-
-    return res.status(StatusCodes.OK).json(allBooksRes)
   });
 }
 
