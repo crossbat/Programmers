@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BooksEmpty from "../components/books/BooksEmpty";
+import BooksEmpty from "../components/books/_BooksEmpty";
 import BooksFilter from "../components/books/BooksFilter";
 import BooksList from "../components/books/BooksList";
 import BooksViewSwitcher from "../components/books/BooksViewSwitcher";
@@ -17,13 +17,11 @@ export default function Books() {
         {/* 필터 */}
         <div className="filter">
           <BooksFilter />
-          <BooksViewSwitcher /> {/* 목록 */}
+          <BooksViewSwitcher />
         </div>
         {!isEmpty && <BooksList books={books} />}
         {isEmpty && <BooksEmpty />}
         {!isEmpty && <Pagination pagination={pagination} />}
-        {/* 빈페이지 */}
-        {/* 페이지네이션 */}
       </BooksStyle>
     </>
   )

@@ -1,19 +1,13 @@
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
-import styled from "styled-components"
-import { login, signup } from "../api/auth.api"
+import { login } from "../api/auth.api"
 import Button from "../components/common/Button"
 import { InputText } from "../components/common/InputText"
 import Title from "../components/common/Title"
 import { useAlert } from "../hook/useAlert"
 import { useAuthStore } from "../store/authStore"
-import { SignupStyle } from "./Signup"
+import { SignupProps, SignupStyle } from "./Signup"
 
-export interface SignupProps {
-  email: string;
-  password: string;
-}
 
 export default function Login() {
   const navigate = useNavigate();

@@ -1,5 +1,4 @@
-import { FaRegCheckSquare } from "react-icons/fa";
-import { Book, BookDetail } from "../models/book.model";
+import { Book } from "../models/book.model";
 import { Pagination } from "../models/pagination.model";
 import { httpClient } from "./http"
 

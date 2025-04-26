@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom"
-import { styled } from "styled-components"
 import CartSummary from "../components/cart/CartSummary";
 import Button from "../components/common/Button";
 import { InputText } from "../components/common/InputText";
