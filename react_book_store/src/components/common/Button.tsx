@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import styled from "styled-components"
 import { BorderRadius, ButtonScheme, ButtonSize } from "../../style/styled";
 
+type Tbutton = 'button' | 'submit'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -11,11 +12,12 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   isLoading?: boolean;
   onClick?: () => void;
+  type?: Tbutton;
 }
 
-export default function Button({ children, size, scheme, disabled, isLoading, onClick }: Props) {
+export default function Button({ children, size, scheme, disabled, isLoading, type, onClick }: Props) {
   return (
-    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} onClick={onClick}>{children}</ButtonStyle>
+    <ButtonStyle size={size} scheme={scheme} disabled={disabled} isLoading={isLoading} onClick={onClick} type={type}>{children}</ButtonStyle>
   )
 }
 

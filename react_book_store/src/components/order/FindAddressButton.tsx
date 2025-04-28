@@ -24,6 +24,7 @@ export default function FindAddressButton({ onCompleted }: Props) {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = SCRIPT_URL;
+    script.async = true;
     document.head.appendChild(script);
 
     return () => {

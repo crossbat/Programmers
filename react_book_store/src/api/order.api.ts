@@ -1,17 +1,20 @@
+import { async } from "q";
 import { Order, OrderDetailItem, OrderSheet } from "../models/order.model";
-import { httpClient } from "./http";
+import { httpClient, requestHandler } from "./http";
+
+// export const order = async (orderData: OrderSheet) => {
+//   const res = await httpClient.post('/orders', orderData);
+//   return res.data;
+// }
 
 export const order = async (orderData: OrderSheet) => {
-  const res = await httpClient.post('/orders', orderData);
-  return res.data;
+  return await requestHandler('post', '/orders', orderData)
 }
 
 export const fetchOrders = async () => {
-  const res = await httpClient.get<Order[]>('/orders');
-  return res.data;
+  return await requestHandler('get', '/orders');
 }
 
 export const fetchOrder = async (id: number) => {
-  const res = await httpClient.get<OrderDetailItem[]>(`/orders/${id}`);
-  return res.data;
+  return await requestHandler('get', `/orders//${id}`);
 }

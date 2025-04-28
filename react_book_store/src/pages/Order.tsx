@@ -20,6 +20,9 @@ export default function Order() {
   const location = useLocation();
   const orderDataFromCart = location.state;
   const { totalCount, totalPrice, firstBookTitle } = orderDataFromCart;
+  console.log(orderDataFromCart);
+
+
 
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<DeliveryForm>()
 
