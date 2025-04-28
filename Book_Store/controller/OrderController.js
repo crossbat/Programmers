@@ -1,5 +1,4 @@
 const { StatusCodes } = require('http-status-codes');
-const auth = require('../Authorization.js');
 const jwt = require('jsonwebtoken');
 const authorization = require('../Authorization.js');
 
@@ -13,7 +12,7 @@ const addOrders = async (req, res) => {
     dateStrings: true
   });
 
-  const auth = auth(req);
+  const auth = authorization(req);
   const { items, firstBookTitle, delivery, totalCount, totalPrice } = req.body;
 
   if (auth instanceof jwt.TokenExpiredError) {
