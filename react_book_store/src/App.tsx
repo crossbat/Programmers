@@ -69,7 +69,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BookStoreThemeProvider>
-        <ThemeSwitcher />
         <RouterProvider router={router} />
       </BookStoreThemeProvider>
     </QueryClientProvider>

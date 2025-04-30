@@ -1,9 +1,11 @@
 import { styled } from "styled-components"
 import logo from '../../assets/images/logo.png'
-import { FaSignInAlt, FaRegUser } from 'react-icons/fa'
+import { FaSignInAlt, FaRegUser, FaUserCircle } from 'react-icons/fa'
 import { Link } from "react-router-dom"
 import { useCategory } from "../../hook/useCategory"
 import { useAuthStore } from "../../store/authStore"
+import Dropdown from "./Dropdown"
+import ThemeSwitcher from "../header/ThemeSwitcher"
 
 export default function Header() {
   const { category } = useCategory();
@@ -33,40 +35,45 @@ export default function Header() {
         </ul>
       </nav>
       <nav className="auth">
-        {
-          isLoggedIn && (
-            <ul>
-              <li>
-                <Link to='/cart'>장바구니</Link>
-              </li>
-              <li>
-                <Link to='/orderlist'>주문내역</Link>
-              </li>
-              <li>
-                <button onClick={Logout}>로그아웃</button>
-              </li>
+        <Dropdown toggleButton={<FaUserCircle />}>
+          <>
+            {
+              isLoggedIn && (
+                <ul>
+                  <li>
+                    <Link to='/cart'>장바구니</Link>
+                  </li>
+                  <li>
+                    <Link to='/orderlist'>주문내역</Link>
+                  </li>
+                  <li>
+                    <button onClick={Logout}>로그아웃</button>
+                  </li>
 
-            </ul>
-          )
-        }
-        {
-          !isLoggedIn && (
-            <ul>
-              <li>
-                <a href='/login'>
-                  <FaSignInAlt />
-                  로그인
-                </a>
-              </li>
-              <li>
-                <a href='/signup'>
-                  <FaRegUser />
-                  회원가입
-                </a>
-              </li>
-            </ul>
-          )
-        }
+                </ul>
+              )
+            }
+            {
+              !isLoggedIn && (
+                <ul>
+                  <li>
+                    <a href='/login'>
+                      <FaSignInAlt />
+                      로그인
+                    </a>
+                  </li>
+                  <li>
+                    <a href='/signup'>
+                      <FaRegUser />
+                      회원가입
+                    </a>
+                  </li>
+                </ul>
+              )
+            }
+            <ThemeSwitcher />
+          </>
+        </Dropdown>
       </nav>
     </HeaderStyle>
   )
@@ -110,10 +117,12 @@ border-bottom : 1px solid ${({ theme }) => theme.colors.background};
 .auth{
   ul{
     display : flex;
+    flex-direction : column;
     gap : 16px;
+    width : 100px;
     li{
       a, button{
-        font-size : 1.5rem;
+        font-size : 1rem;
         font-weight : 600;
         text-decoration : none;
         display : flex;

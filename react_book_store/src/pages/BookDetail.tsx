@@ -1,3 +1,4 @@
+import BookReview from "../components/bookItem/BookReview";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components"
 import AddToCart from "../components/bookItem/AddToCart";
@@ -45,7 +46,7 @@ const bookInfoList = [
 
 export default function BookDetail() {
   const { id } = useParams();
-  const { book, likeToggle } = useBook(id);
+  const { book, likeToggle, reviews, addReview } = useBook(id);
   if (!book) return null;
 
   return (
@@ -79,6 +80,9 @@ export default function BookDetail() {
 
         <Title size='medium'>목차</Title>
         <p className="index">{book.contents}</p>
+
+        <Title size="medium">리뷰</Title>
+        <BookReview reviews={reviews} onAdd={addReview} />
       </div>
     </BookDetailStyle>
   )
