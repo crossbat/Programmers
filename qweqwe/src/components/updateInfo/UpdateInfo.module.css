@@ -1,0 +1,93 @@
+.updateInfoContainer{
+  height: auto;
+  width : 70%;
+  padding-top : 120px;
+  margin: 0 auto;
+}
+
+.imageBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom : 20px;
+}
+
+.imageBox > img{
+  height : 120px;
+  border-radius : 50%;
+}
+
+.imageBox > button{
+  height : 40px;
+  width : 100px;
+  font-size : 15px;
+  font-weight: bold;
+  margin-left: 30px;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  color : black;
+  cursor: pointer;
+}
+
+
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  align-items :center;
+}
+
+.inputContainer > input, .inputContainer > textarea{
+  height : 30px;
+  width : 60%;
+  margin-bottom : 20px;
+  border: 3px solid #d9d9d9;
+  border-radius : 7px;
+  padding-left: 10px;
+}
+
+.inputContainer > textarea{
+  padding-top : 10px;
+  padding-bottom : 10px;
+  height : 60px;
+  resize : vertical;
+}
+
+.inputContainer > input:focus, .inputContainer > textarea:focus{
+  outline-color: #ec7fa9;
+}
+
+.updateInfoContainer > hr{
+  width : 70%;
+  border-top: 1px solid  #d9d9d9;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonContainer > button{
+  width : 30%;
+  height : 40px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0px 2px 2px 0px rgba(102,102,102,0.5);
+  cursor: pointer;
+  opacity: 0.8;
+  transition : opacity 0.5s ease-in-out;
+}
+
+.buttonContainer > button:hover{
+  opacity: 1;
+}
+
+.buttonContainer > button[type='submit']{
+  background-color : #ffc1ee;
+}
+
+.buttonContainer > button[type='reset']{
+  background-color : #fed9f4;
+}

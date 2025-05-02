@@ -1,0 +1,56 @@
+.container{
+  display : flex;
+  height: 80px;
+  width : 80vw;
+  justify-content : space-between;
+  align-items : center;
+}
+
+.navItems{
+  display : flex;
+  padding-right: 30px;
+}
+
+.navItems > a{
+  padding : 0 7px;
+  text-decoration : none;
+  color : black;
+}
+
+.logo{
+  height : 90%;
+  width : auto;
+}
+
+.searchBox{
+  position:relative;
+}
+
+.searchBox > input{
+  height: 30px;
+  width : 450px;
+  padding-left : 12px;
+  padding-right : 30px;
+  border-radius : 7px;
+  border : 1px solid #EC7FA9;
+}
+
+.searchBox > input::placeholder{
+  color : #666666;
+  font-size : 15px;
+}
+
+.searchBox > input:focus{
+  border: 3px solid #ec7fa9;
+  outline : none;
+}
+
+.searchIcon{
+  position : absolute;
+  height : 25px;
+  top: 50%;
+  right : 10px;
+  transform : translateY(-50%);
+  cursor: pointer;
+}
+/* 돋보기 모양 absolute로 세로 가운데 정렬하기 */

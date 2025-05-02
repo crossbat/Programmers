@@ -1,0 +1,18 @@
+.category_container {
+    min-width: 188px;
+}
+
+.category_line {
+    width: "100%";
+    text-align: "center";
+    border-bottom: 1.1px solid #FEDDF0;
+    line-height: 1px;
+    margin: "20px 0";
+}
+
+.category {
+    display: flex;
+    margin-bottom: 16px;
+    gap: 8px;
+    cursor: pointer;
+}

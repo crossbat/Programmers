@@ -1,0 +1,196 @@
+{
+  "items" : [
+  {
+    "id": 1,
+    "category": "디지털기기",
+    "title": "Apple AirPods Pro 2세대",
+    "price": 270000,
+    "postedAt": "2025-04-10",
+    "description": "최신형 에어팟 프로 2세대입니다. 사용감 거의 없고, 박스와 구성품 모두 포함되어 있습니다.",
+    "likes": 24,
+    "seller": "홍길동",
+    "imageUrl": "https://cdn.pixabay.com/photo/2020/04/10/01/17/airpods-5023660_1280.jpg"
+  },
+  {
+    "id": 2,
+    "category": "남성패션/잡화",
+    "title": "나이키 에어맥스 270",
+    "price": 120000,
+    "postedAt": "2025-04-08",
+    "description": "사이즈 270, 몇 번 안 신어서 상태 좋습니다.",
+    "likes": 15,
+    "seller": "김영희",
+    "imageUrl": "https://cdn.pixabay.com/photo/2020/07/15/18/26/footwear-5408643_1280.jpg"
+  },
+  {
+    "id": 3,
+    "category": "생활/주방",
+    "title": "샤오미 무선 청소기",
+    "price": 80000,
+    "postedAt": "2025-04-07",
+    "description": "작동 잘 됩니다. 새 제품 구매로 판매합니다.",
+    "likes": 9,
+    "seller": "이철수",
+    "imageUrl": "https://cdn.pixabay.com/photo/2023/07/08/10/47/vacuum-cleaner-8114145_1280.jpg"
+  },
+  {
+    "id": 4,
+    "category": "생활가전",
+    "title": "LG 43인치 스마트 TV",
+    "price": 320000,
+    "postedAt": "2025-04-05",
+    "description": "리모컨 포함, 1년 사용한 깨끗한 TV입니다.",
+    "likes": 31,
+    "seller": "박지민",
+    "imageUrl": "https://cdn.pixabay.com/photo/2015/02/07/20/58/tv-627876_1280.jpg"
+  },
+  {
+    "id": 5,
+    "category": "취미/게임/음반",
+    "title": "닌텐도 스위치 OLED 화이트",
+    "price": 350000,
+    "postedAt": "2025-04-09",
+    "description": "풀박스, 보호필름 부착, 상태 최상입니다.",
+    "likes": 42,
+    "seller": "정해인",
+    "imageUrl": "https://cdn.pixabay.com/photo/2019/01/24/23/54/nintendo-switch-3953601_1280.jpg"
+  },
+  {
+    "id": 6,
+    "category": "도서",
+    "title": "이것이 자바다 (개정판)",
+    "price": 18000,
+    "postedAt": "2025-04-03",
+    "description": "필기 거의 없이 깨끗하게 봤습니다.",
+    "likes": 5,
+    "seller": "최수정",
+    "imageUrl": "https://cdn.pixabay.com/photo/2022/05/10/20/52/calligraphy-7188024_1280.jpg"
+  },
+  {
+    "id": 7,
+    "category": "반려동물용품",
+    "title": "고양이 자동급식기",
+    "price": 40000,
+    "postedAt": "2025-04-06",
+    "description": "USB 작동, 타이머 설정 가능. 한 달 사용.",
+    "likes": 7,
+    "seller": "강민경",
+    "imageUrl": "https://cdn.pixabay.com/photo/2022/07/21/15/55/dry-dog-food-7336506_1280.jpg"
+  },
+  {
+    "id": 8,
+    "category": "유아동",
+    "title": "보행기 겸 유아의자",
+    "price": 25000,
+    "postedAt": "2025-04-01",
+    "description": "깨끗하게 사용했고 튼튼해요. 직접 가져가시면 할인해드려요.",
+    "likes": 4,
+    "seller": "윤서진",
+    "imageUrl": "https://cdn.pixabay.com/photo/2018/05/09/21/55/baby-3386242_1280.jpg"
+  },
+  {
+    "id": 9,
+    "category": "스포츠/레저",
+    "title": "골프 퍼터 연습기",
+    "price": 30000,
+    "postedAt": "2025-04-02",
+    "description": "실내 연습용으로 좋아요. 거의 새 제품입니다.",
+    "likes": 11,
+    "seller": "오승훈",
+    "imageUrl": "https://cdn.pixabay.com/photo/2016/12/15/15/18/golf-1909115_1280.jpg"
+  },
+  {
+    "id": 10,
+    "category": "가구/인테리어",
+    "title": "이케아 책상 + 의자 세트",
+    "price": 70000,
+    "postedAt": "2025-04-04",
+    "description": "흰색 책상과 회색 의자 세트로 판매합니다. 생활 기스 조금 있어요.",
+    "likes": 20,
+    "seller": "배유진",
+    "imageUrl": "https://cdn.pixabay.com/photo/2020/08/25/18/28/workplace-5517744_1280.jpg"
+  }
+],
+  "categories": [
+    {
+      "id": 0,
+      "name": "전체"
+    },
+    {
+      "id": 1,
+      "name": "디지털기기"
+    },
+    {
+      "id": 2,
+      "name": "생활가전"
+    },
+    {
+      "id": 3,
+      "name": "가구/인테리어"
+    },
+    {
+      "id": 4,
+      "name": "생활/주방"
+    },
+    {
+      "id": 5,
+      "name": "유아동"
+    },
+    {
+      "id": 6,
+      "name": "유아도서"
+    },
+    {
+      "id": 7,
+      "name": "여성의류"
+    },
+    {
+      "id": 8,
+      "name": "여성잡화"
+    },
+    {
+      "id": 9,
+      "name": "남성패션/잡화"
+    },
+    {
+      "id": 10,
+      "name": "뷰티/미용"
+    },
+    {
+      "id": 11,
+      "name": "스포츠/레저"
+    },
+    {
+      "id": 12,
+      "name": "취미/게임/음반"
+    },
+    {
+      "id": 13,
+      "name": "도서"
+    },
+    {
+      "id": 14,
+      "name": "티켓/교환권"
+    },
+    {
+      "id": 15,
+      "name": "가공식품"
+    },
+    {
+      "id": 16,
+      "name": "건강기능식품"
+    },
+    {
+      "id": 17,
+      "name": "반려동물용품"
+    },
+    {
+      "id": 18,
+      "name": "식물"
+    },
+    {
+      "id": 19,
+      "name": "기타 중고물품"
+    }
+  ]
+}

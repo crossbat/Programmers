@@ -1,0 +1,142 @@
+.dajung-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.banner-box {
+  width: 1380px;
+  height: 260px;
+  margin-top: -70px;
+  margin-left: -60px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+.product-section {
+  margin-top: 60px;
+  padding: 0 10px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-left:-60px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  justify-content: center;
+}
+
+.product-card {
+  width: 200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #F2F2F2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.card-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-name {
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.card-time {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:140px;
+  margin-bottom:-140px;
+  gap: 14px;
+}
+
+.page-number {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Pretendard', sans-serif;
+  color: #666;
+  cursor: pointer;
+}
+
+.page-number.active {
+  font-weight: 600;
+  color: black;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: #ffffff;
+  color: black;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+}

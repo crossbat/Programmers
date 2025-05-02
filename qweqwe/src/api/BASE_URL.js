@@ -1,0 +1,2 @@
+export const BASE_URL = 'https://d9e0-222-232-138-33.ngrok-free.app'
+export let AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InF3ZXJAbWFpbC5jb20iLCJ1c2VyX2lkIjoyNCwiaWF0IjoxNzQ2MTgyODExLCJleHAiOjE3NDYxODQ2MTEsImlzcyI6ImtpbSJ9.LYnwd-6R1jCU1N1N0ZKdqHlcCC835TEez23BOlrfLXY'

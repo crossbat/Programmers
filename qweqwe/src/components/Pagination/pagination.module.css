@@ -1,0 +1,44 @@
+.pageContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top : 100px;
+}
+
+.arrows{
+  border: none;
+  background-color: transparent;
+  font-size : 20px;
+  padding : 10px 16px;
+  margin: 0 10px 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons{
+  border: none;
+  background-color: transparent;
+  font-size : 20px;
+  padding : 10px 16px;
+  margin: 0 10px 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.buttons:hover{
+  background-color: rgba(255, 184, 224, 0.5);
+}
+
+.activePage{
+  border: none;
+  background-color: transparent;
+  font-size : 20px;
+  padding : 10px 16px;
+  margin: 0 10px 0 10px;
+  border-radius: 50%;
+  background-color : #ffb8e0;
+  cursor: pointer;
+}

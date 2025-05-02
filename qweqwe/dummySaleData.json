@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "무선 이어폰",
+    "price": 79000,
+    "days_since_posted": 3
+  },
+  {
+    "id": 2,
+    "name": "노트북 쿨링 패드",
+    "price": 19900,
+    "days_since_posted": 7
+  },
+  {
+    "id": 3,
+    "name": "스탠딩 책상",
+    "price": 159000,
+    "days_since_posted": 12
+  },
+  {
+    "id": 4,
+    "name": "USB-C 허브",
+    "price": 34900,
+    "days_since_posted": 1
+  },
+  {
+    "id": 5,
+    "name": "기계식 키보드",
+    "price": 89000,
+    "days_since_posted": 4
+  },
+  {
+    "id": 6,
+    "name": "게이밍 마우스",
+    "price": 45000,
+    "days_since_posted": 2
+  },
+  {
+    "id": 7,
+    "name": "27인치 모니터",
+    "price": 229000,
+    "days_since_posted": 10
+  },
+  {
+    "id": 8,
+    "name": "외장 SSD 1TB",
+    "price": 119000,
+    "days_since_posted": 5
+  },
+  {
+    "id": 9,
+    "name": "삼성 갤럭시 워치",
+    "price": 169000,
+    "days_since_posted": 9
+  },
+  {
+    "id": 10,
+    "name": "아이패드 9세대",
+    "price": 349000,
+    "days_since_posted": 8
+  },
+  {
+    "id": 11,
+    "name": "블루투스 스피커",
+    "price": 39000,
+    "days_since_posted": 6
+  },
+  {
+    "id": 12,
+    "name": "전동 칫솔",
+    "price": 59000,
+    "days_since_posted": 11
+  },
+  {
+    "id": 13,
+    "name": "플레이스테이션 5",
+    "price": 599000,
+    "days_since_posted": 14
+  },
+  {
+    "id": 14,
+    "name": "닌텐도 스위치",
+    "price": 389000,
+    "days_since_posted": 13
+  },
+  {
+    "id": 15,
+    "name": "고프로 히어로9",
+    "price": 299000,
+    "days_since_posted": 15
+  },
+  {
+    "id": 16,
+    "name": "전자책 리더기",
+    "price": 139000,
+    "days_since_posted": 2
+  },
+  {
+    "id": 17,
+    "name": "스마트 체중계",
+    "price": 29000,
+    "days_since_posted": 7
+  },
+  {
+    "id": 18,
+    "name": "무선 청소기",
+    "price": 189000,
+    "days_since_posted": 3
+  },
+  {
+    "id": 19,
+    "name": "아이폰 13",
+    "price": 790000,
+    "days_since_posted": 6
+  },
+  {
+    "id": 20,
+    "name": "스마트 빔프로젝터",
+    "price": 99000,
+    "days_since_posted": 10
+  },
+  {
+    "id": 21,
+    "name": "캡슐 커피머신",
+    "price": 109000,
+    "days_since_posted": 4
+  },
+  {
+    "id": 22,
+    "name": "전기포트",
+    "price": 25000,
+    "days_since_posted": 1
+  },
+  {
+    "id": 23,
+    "name": "에어프라이어",
+    "price": 69000,
+    "days_since_posted": 9
+  },
+  {
+    "id": 24,
+    "name": "휴대용 선풍기",
+    "price": 19900,
+    "days_since_posted": 5
+  },
+  {
+    "id": 25,
+    "name": "LED 스탠드",
+    "price": 33000,
+    "days_since_posted": 8
+  }
+]
