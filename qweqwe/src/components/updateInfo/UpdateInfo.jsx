@@ -3,11 +3,22 @@ import profileImage from '../../assets/default_image.jpg';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup'
 
+const scheme = yup.object({
+  name :
+  nickname :
+  email :
+  info :
+  contact :
+  password :
+  checkPassword : 
+})
 
 export default function UpdateInfo() {
   const { contextUserData } = useOutletContext();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, setValue, setError, formState: { errors }, reset } = useForm({ mode: 'onChange' });
 
   useEffect(() => {
     if (contextUserData) {
